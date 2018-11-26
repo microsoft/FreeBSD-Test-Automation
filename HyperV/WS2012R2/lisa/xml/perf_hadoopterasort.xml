@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>C:\lisa\TestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+                <to>myboss@mycompany.com</to>
+                <to>myself@mycompany.com</to>
+            </recipients>
+            <sender>myself@mycompany.com</sender>
+            <subject>LISA FTM Test Run on WS2012</subject>
+            <smtpServer>mysmtphost.mycompany.com</smtpServer>
+        </email>
+
+        <!-- Optional testParams go here -->
+        <testParams>
+            <param>vmCpuNumber=4</param>
+            <param>vmMemory=20GB</param>
+        </testParams>
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>PerfTeraSort</suiteName>
+            <suiteTests>
+                <suiteTest>Perf_TeraSort</suiteTest>
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+        <test>
+            <testName>Perf_TeraSort</testName>
+            <testScript>perf_hadoopterasort.sh</testScript>
+            <files>remote-scripts/ica/perf_hadoopterasort.sh,testdata/perf_hadoopterasort.xml/hadoop-2.4.0.tar.gz</files>
+            <timeout>1800</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>TC_COVERED=PERF-TeraSort</param>
+                <param>HADOOP_MASTER_HOSTNAME=freebsd10-test-1</param>
+                <param>RESOURCE_MANAGER_HOSTNAME=freebsd10-test-1</param>
+                <param>SLAVE_HOSTNAMES=freebsd10-test-2</param>
+                <param>TERAGEN_RECORDS=50000000</param>
+            </testparams>
+            <uploadFiles>
+                <file>hadoop.log</file>
+                <file>terasort.log</file>
+            </uploadFiles>
+        </test>
+    </testCases>
+
+    <VMs>        
+        <vm>
+            <role>SUT</role>
+            <vmName>FreeBSD10-TEST-1</vmName>
+            <hvServer>localhost</hvServer>
+            <os>FreeBSD</os>
+            <ipv4></ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>PerfTeraSort</suite>
+            <preStartConfig>setupScripts/Config-VM.ps1</preStartConfig>
+        </vm>
+        <vm>
+            <role>NonSUT</role>
+            <hvServer>localhost</hvServer>
+            <vmName>FreeBSD10-TEST-2</vmName>
+            <os>FreeBSD</os>
+            <ipv4></ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <preStartConfig>setupScripts/Config-VM.ps1</preStartConfig>
+        </vm>
+    </VMs>
+</config>

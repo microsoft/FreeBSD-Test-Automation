@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import os
+import sys
+import subprocess
+import icatest
+import icatest.daemon
+import icatest.errors
+#
+# Command line format:
+#     ica-ostype get
+#
+args = len(sys.argv)
+if args != 2 and args != 3:
+    print ("Invalid parameter")
+    print ("Usage: %s get" % sys.argv[0])
+    sys.exit(icatest.errors.ERROR_INVALID_PARAMETER)
+if sys.argv[1].lower() != "get":
+    print ("Verb not supported: %s" % sys.argv[1])
+    sys.exit(icatest.errors.ERROR_INVALID_PARAMETER)
+
+bin_path = "/usr/bin/env"
+if not os.path.exists(bin_path):
+    print ("No env command")
+    sys.exit(icatest.errors.ERROR_FILE_NOT_FOUND)
+if not os.path.isfile(bin_path):
+    print ("env is not a file")
+    sys.exit(icatest.errors.ERROR_BAD_ENVIRONMENT)
+if not os.access(bin_path, os.X_OK):
+    print ("env is not executable")
+    sys.exit(icatest.errors.ERROR_BAD_ENVIRONMENT)
+try:
+
+    cmdline = [ bin_path, "uname", "-s"]
+    uname = subprocess.Popen(cmdline,
+                             stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE)
+    return_code = uname.wait()
+    output = uname.stdout.read().decode('utf-8')
+    error = uname.stderr.read().decode('utf-8')
+    if return_code == icatest.errors.ERROR_SUCCESS:
+        print (output.split("\n")[0])
+    else:
+        print ("uname fail: code = %d, output = %s" % \
+                (return_code, error.split("\n")[0]))
+        return_code = ERROR_BAD_ENVIRONMENT
+    sys.exit(return_code)
+except Exception:
+    print ("Failed to run 'uname'")
+    sys.exit(icatest.errors.ERROR_BAD_ENVIRONMENT)
+# vim: ff=unix expandtab shiftwidth=4

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>\\localhost\Public\LisaTestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+                <to>xiliang@microsoft.com</to>
+            </recipients>
+            <sender>xiliang@microsoft.com</sender>
+            <subject>Test runs for Linux and FreeBSD on Win2K8 R2</subject>
+            <smtpServer>smtphost.redmond.corp.microsoft.com</smtpServer>
+        </email>
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>BasicTest</suiteName>
+            <suiteTests>
+                <suiteTest>SMP_VCPU</suiteTest>			
+                <suiteTest>FloppyDisk</suiteTest>
+            </suiteTests>
+        </suite>
+    </testSuites>
+	
+    <testCases>
+        <test>
+            <testName>FloppyDisk</testName>
+            <!--setupScript>setupScripts\CreateMountVFD.ps1</setupScript-->
+            <preTest>setupScripts\CreateMountVFD.ps1</preTest> 			
+            <testScript>Floppy_Disk.sh</testScript>
+			<postTest>setupScripts\UnMountVFD.ps1</postTest>
+            <!--cleanupScript>setupScripts\UnMountVFD.ps1</cleanupScript-->
+            <files>remote-scripts/ica/Floppy_Disk.sh</files>
+            <timeout>600</timeout>
+            <onError>Abort</onError>
+            <noReboot>True</noReboot>
+        </test>
+        <test>
+            <testName>SMP_VCPU</testName>
+            <setupScript>setupScripts\ChangeCPU.ps1</setupScript> 
+			<!--preTest>setupScripts\ChangeCPU.ps1</preTest--> 
+            <testScript>TC-3-VCPU.sh</testScript>
+            <files>remote-scripts/ica/TC-3-VCPU.sh</files>
+			<testparams>		
+		        <param>VCPU=4</param>                
+            </testparams>
+            <timeout>600</timeout>
+            <onError>Abort</onError>
+            <noReboot>True</noReboot>
+        </test>
+    </testCases>
+
+    <VMs>
+        <vm>
+            <hvServer>xiaochun-980</hvServer>
+            <vmName>freebsdx86</vmName>
+            <os>FreeBSD</os>
+            <ipv4>10.172.65.49</ipv4>
+            <sshKey>lisa_id_rsa.ppk</sshKey>
+            <suite>BasicTest</suite>
+        </vm>
+ 	    <!--vm>
+            <hvServer>xiaochun-980</hvServer>
+            <vmName>redhat61x86</vmName>
+            <os>Linux</os>
+            <ipv4>10.172.64.252</ipv4>
+            <sshKey>lisa_id_rsa.ppk</sshKey>
+            <suite>BasicTest</suite>
+        </vm-->			
+    </VMs>
+</config>
+

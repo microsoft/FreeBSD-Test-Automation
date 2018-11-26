@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>C:\public\LisaTestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+                <to>nmeier@microsoft.com</to>
+            </recipients>
+            <sender>v-vyadav@microsoft.com</sender>
+            <subject>LISA test run on Azure </subject>
+            <smtpServer>smtphost.redmond.corp.microsoft.com</smtpServer>
+        </email>
+
+        <!-- Optional testParams go here -->
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>LISDistro</suiteName>
+            <suiteTests>
+                <suiteTest>InstallLIS</suiteTest>
+                <suiteTest>ICTest</suiteTest>
+                <suiteTest>VMHeartBeat</suiteTest>
+                <suiteTest>SMP_VCPU</suiteTest>
+                <suiteTest>ShutdownVM</suiteTest>
+                <suiteTest>AddDisk_IDE_0_DYNAMIC</suiteTest>
+                <suiteTest>AddDisk_IDE_0_FIXED</suiteTest>
+                <suiteTest>AddDisk_IDE_1_DYNAMIC</suiteTest>
+                <suiteTest>AddDisk_IDE_1_FIXED</suiteTest>
+                <suiteTest>AddDisk_SCSI_DYNAMIC</suiteTest>
+                <suiteTest>AddDisk_SCSI_FIXED</suiteTest>
+                <suiteTest>FloppyDisk</suiteTest>
+            <!--
+                <suiteTest>AddExternal_Network</suiteTest>
+                <suiteTest>AddInternal_Network</suiteTest>
+                <suiteTest>AddPrivate_Network</suiteTest>
+            -->
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+        <test>
+            <testName>Copy_Large_File</testName>
+            <testScript>Secure_Copy.sh</testScript>
+            <files>remote-scripts/ica/Secure_Copy.sh, remote-scripts/ica</files>
+            <noReboot>true</noReboot>
+            <testparams>		
+                <param>FILE_PATH=/tmp/Data</param>  
+                <param>REPOSITORY_SERVER=10.200.41.67</param>              
+            </testparams>
+            <timeout>18000</timeout>
+        </test>
+        <test>
+            <testName>NETWORK_MODE</testName>
+            <testScript>TC-5-NETWORK_MODE.sh</testScript>
+            <files>remote-scripts/ica/TC-5-NETWORK_MODE.sh, remote-scripts/ica, remote-scripts/bin</files>
+            <noReboot>true</noReboot>
+            <timeout>10800</timeout>
+        </test>
+        <test>
+            <testName>AddPassThrough_Disk_IDE_1</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>                   
+                <param>IDE=1,1,PassThrough</param>
+                <param>IDE_DISK=1</param>
+            </testParams> 	         
+            <testScript>TC-6-Synthetic-IDE-Disk.sh</testScript>
+            <files>remote-scripts/ica/TC-6-Synthetic-IDE-Disk.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+        <test>
+            <testName>AddPassThrough_Disk_IDE_0</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>                   
+                <param>IDE=1,1,PassThrough</param>
+                <param>IDE_DISK=1</param>
+            </testParams> 	         
+            <testScript>TC-6-Synthetic-IDE-Disk.sh</testScript>
+            <files>remote-scripts/ica/TC-6-Synthetic-IDE-Disk.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+        <test>
+            <testName>AddPassThrough_Disk_SCSI</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <param>SCSI_DISK=1</param>
+                <param>SCSI=0,1,PassThrough</param>
+            </testParams> 	         
+            <testScript>TC-4-SCSI-DISK.sh</testScript>
+            <files>remote-scripts/ica/TC-4-SCSI-DISK.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+	
+
+
+
+
+
+
+
+
+        <test>
+            <testName>AddDisk_SCSI_DYNAMIC</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <param>DISK=1</param>
+                <param>SCSI=0,1,Dynamic</param>
+            </testParams> 	         
+            <testScript>new_disk.sh</testScript>
+            <files>remote-scripts/ica/new_disk.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+
+        <test>
+            <testName>AddDisk_SCSI_FIXED</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <param>DISK=1</param>
+                <param>SCSI=0,1,Fixed</param>
+            </testParams> 	         
+            <testScript>new_disk.sh</testScript>
+            <files>remote-scripts/ica/new_disk.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+
+        <test>
+            <testName>AddDisk_IDE_0_DYNAMIC</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <param>DISK=1</param>
+                <param>IDE=0,1,Dynamic</param>
+            </testParams> 	         
+            <testScript>new_disk.sh</testScript>
+            <files>remote-scripts/ica/new_disk.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+
+        <test>
+            <testName>AddDisk_IDE_0_FIXED</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <param>DISK=1</param>
+                <param>IDE=0,1,Fixed</param>
+            </testParams> 	         
+            <testScript>new_disk.sh</testScript>
+            <files>remote-scripts/ica/new_disk.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+
+        <test>
+            <testName>AddDisk_IDE_1_FIXED</testName>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <param>DISK=1</param>
+                <param>IDE=1,1,Fixed</param>
+            </testParams> 	         
+            <testScript>new_disk.sh</testScript>
+            <files>remote-scripts/ica/new_disk.sh, remote-scripts/ica</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>10800</timeout>
+        </test>
+
+        <test>
+            <testName>AddDisk_IDE_1_DYNAMIC</testName>
+            <testScript>new_disk.sh</testScript>
+            <files>remote-scripts/ica/new_disk.sh, remote-scripts/ica</files>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <testParams>
+                <param>DISK=1</param>
+                <param>IDE=1,1,Dynamic</param>
+            </testParams> 	         
+            <timeout>1200</timeout>
+        </test>
+
+        <test>
+            <testName>AddPrivate_Network</testName>
+            <testScript>GuestOnly_Network.sh</testScript>
+            <files>remote-scripts/ica/GuestOnly_Network.sh, remote-scripts/ica</files>
+            <setupScript>SetupScripts\AddNic.ps1</setupScript>
+            <cleanupScript>SetupScripts\RemoveNic.ps1</cleanupScript>
+            <testParams>
+                <param>NIC=NetworkAdapter,Private,PrivateNet</param>
+                <param>VM_GUEST_ONLY_IP=192.168.0.10</param>
+                <param>HOST_SERVER_INTERNAL_IP=192.168.0.1</param>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>NW_ADAPTER=1</param>
+            </testParams> 	         
+            <timeout>1200</timeout>
+        </test>
+
+        <test>
+            <testName>AddInternal_Network</testName>
+            <testScript>Internal_Network.sh</testScript>
+            <files>remote-scripts/ica/Internal_Network.sh, remote-scripts/ica</files>
+            <setupScript>SetupScripts\AddNic.ps1</setupScript>
+            <cleanupScript>SetupScripts\RemoveNic.ps1</cleanupScript>
+            <testParams>
+                <param>NIC=NetworkAdapter,Internal,InternalNet</param> 
+                <param>HOST_SERVER_INTERNAL_IP=192.168.0.1</param> 
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>NW_ADAPTER=1</param>
+            </testParams> 	         
+            <timeout>1200</timeout>
+        </test>
+
+        <test>
+            <testName>AddExternal_Network</testName>         
+            <testScript>NETWORK_ADAPTER_PING_EXTERNAL.sh</testScript>
+            <files>remote-scripts/ica/NETWORK_ADAPTER_PING_EXTERNAL.sh, remote-scripts/ica</files>
+            <setupScript>SetupScripts\AddNic.ps1</setupScript>	
+            <cleanupScript>SetupScripts\RemoveNic.ps1</cleanupScript>
+            <testParams>
+                <param>NIC=NetworkAdapter,External,ExternalNet</param>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>NW_ADAPTER=1</param>
+                <param>GATEWAY=10.200.48.1</param>
+            </testParams> 
+            <timeout>1200</timeout>
+        </test>
+
+        <test>
+            <testName>FloppyDisk</testName>
+            <testScript>Floppy_Disk.sh</testScript>
+            <files>remote-scripts/ica/Floppy_Disk.sh, remote-scripts/ica</files>
+            <setupScript>setupScripts\CreateMountVFD.ps1</setupScript>
+            <cleanupScript>setupScripts\UnMountVFD.ps1</cleanupScript>
+            <noReboot>false</noReboot>
+            <timeout>600</timeout>
+        </test>
+
+        <test>
+            <testName>ShutDownVM</testName>
+            <testScript>SetupScripts\TestVMShutdown.ps1</testScript>
+            <files></files>
+            <testParams>
+                <param>TestCaseTimeout=120</param>
+                <param>HyperVLibDir=C:\Public\LISA\trunk\LISA\HyperVLibV2Sp1</param>
+            </testParams>
+            <timeout>600</timeout>
+        </test>
+
+        <test>
+            <testName>SMP_VCPU</testName>
+            <testScript>TC-3-VCPU.sh</testScript>
+            <files>remote-scripts/ica/TC-3-VCPU.sh, remote-scripts/ica, remote-scripts/bin</files>
+            <setupScript>setupScripts\ChangeCPU.ps1</setupScript>
+            <cleanupScript>setupScripts\ResetCPU.ps1</cleanupScript>
+            <testparams>		
+                <param>VCPU=2</param>                
+            </testparams>
+            <noReboot>false</noReboot>
+            <timeout>60</timeout>
+        </test>
+
+        <test>
+            <testName>VMHeartBeat</testName>
+            <testScript>SetupScripts\TestVMHeartbeat.ps1</testScript>
+            <files></files>
+            <testParams>
+                <param>HvLibDir=C:\Users\nmeier\src\lisa\trunk\lisa\HyperVLibV2Sp1</param>
+            </testParams>
+            <timeout>600</timeout>
+        </test>
+
+        <test>
+            <testName>ICTest</testName>
+            <testScript>verifyHyperVIC.sh</testScript>
+            <files>remote-scripts/ica/verifyHyperVIC.sh, remote-scripts/ica</files>
+            <noReboot>false</noReboot>
+            <timeout>600</timeout>
+        </test>
+
+        <test>
+            <testName>InstallLIS</testName>
+            <testScript>INSTALL-LIS-Distro.sh</testScript>
+            <files>remote-scripts/ica/INSTALL-LIS-Distro.sh, remote-scripts/ica </files>
+            <timeout>18000</timeout>
+            <testparams>
+                <param>TARBALL=latestlis.tar</param>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives</param>
+            </testparams>
+            <onError>Abort</onError>
+        </test>
+
+    </testCases>
+
+    <VMs>
+        <vm>
+            <hvServer>lisinter-az1</hvServer>
+            <vmName>RHEL6.1x64</vmName>
+            <os>RHEL</os>
+            <ipv4>10.200.49.91</ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>LISDistro</suite>
+        </vm>
+
+    </VMs>
+
+</config>
+

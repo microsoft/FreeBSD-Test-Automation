@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>TestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+                <to>v-ampaw@microsoft.com</to>
+				<!-- <to>v-prgove@microsoft.com</to>
+				<to>vijayt@microsoft.com</to> -->
+            </recipients>
+            <sender>v-ampaw@microsoft.com</sender>
+            <subject>LISA test run on Sustaining </subject>
+            <smtpServer>smtphost.redmond.corp.microsoft.com</smtpServer>
+        </email>
+
+        <!-- Optional testParams go here -->
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>SustainingTests</suiteName>
+            <suiteTests>
+				<suiteTest>VerifyLISInstall</suiteTest>
+                <!-- <suiteTest>VMHeartBeat</suiteTest>
+                <suiteTest>ICVersion</suiteTest>
+                <suiteTest>SMP_VCPU</suiteTest>
+                <suiteTest>FloppyDisk</suiteTest>
+                <suiteTest>CDmount</suiteTest>
+                <suiteTest>AddDisk_IDE_0_DYNAMIC</suiteTest>
+                <suiteTest>AddDisk_IDE_0_FIXED</suiteTest>
+                <suiteTest>AddDisk_IDE_1_DYNAMIC</suiteTest>
+                <suiteTest>AddDisk_IDE_1_FIXED</suiteTest>
+                <suiteTest>AddDisk_SCSI_DYNAMIC</suiteTest>
+                <suiteTest>AddDisk_SCSI_FIXED</suiteTest>
+                <suiteTest>Ping_External_Network</suiteTest>
+                <suiteTest>Ping_Internal_Network</suiteTest>
+                <suiteTest>Ping_Private_Network</suiteTest> -->
+            
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+        
+	<test>
+            <testName>Ping_External_Network</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddOneNic.ps1</setupScript>
+            <testParams>
+			<param>NIC=NetworkAdapter,External,ExternalNet,</param>
+			<param>REPOSITORY_SERVER=10.200.41.67</param>
+			<param>NW_ADAPTER=1</param>
+			<param>NW_FEDORA_SET_GATEWAY=0</param>
+			<!--<param>GATEWAY=10.200.48.1</param>-->
+                  <!--
+			<param>NIC=NetworkAdapter,External,MS Corpnet,</param>
+			<param>REPOSITORY_SERVER=172.22.143.49</param>
+			<param>NW_ADAPTER=1</param>			
+			<param>NW_FEDORA_SET_GATEWAY=0</paranextm>	-->
+            </testParams> 	         
+	    <testScript>NETWORK_ADAPTER_PING_EXTERNAL.sh</testScript>
+            <files>remote-scripts/ica/NETWORK_ADAPTER_PING_EXTERNAL.sh</files>
+            <cleanupScript>SetupScripts\RemoveOneNic.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+        </test>
+	
+		
+	<test>
+            <testName>Ping_Internal_Network</testName>
+            <testScript>LIS_Internal_Network.sh</testScript>
+            <files>remote-scripts/ica/LIS_Internal_Network.sh</files>
+            <setupScript>setupScripts\AddOneNic.ps1</setupScript>
+            <timeout>600</timeout>
+            <onError>Abort</onError>
+            <noReboot>True</noReboot>
+            <testparams>
+                <param>NIC=NetworkAdapter,Internal,InternalNet,</param>
+                <param>PRIVATE_STATIC_IP=192.168.0.5</param>
+                <param>HOST_SERVER_INTERNAL_IP=192.168.0.1</param>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>TC_COUNT=NET-96</param>
+                <param>NW_ADAPTER=1</param>
+            </testparams>
+			<cleanupScript>SetupScripts\RemoveOneNic.ps1</cleanupScript>
+        </test>	
+
+	<test>
+            <testName>Ping_Private_Network</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddOneNic.ps1</setupScript>
+            <testParams>
+                <param>NIC=NetworkAdapter,Private,PrivateNet,</param>
+                <param>VM_GUEST_ONLY_IP=192.168.0.254</param>
+				<param>PRIVATE_STATIC_IP=192.168.0.5</param>
+                <param>HOST_SERVER_INTERNAL_IP=192.168.0.1</param>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>NW_ADAPTER=1</param>
+				<param>TC_COUNT=NET-98</param>
+                   
+            </testParams> 	         
+	    <testScript>LIS_GuestOnly_Network.sh</testScript>
+            <files>remote-scripts/ica/LIS_GuestOnly_Network.sh</files>
+            <cleanupScript>SetupScripts\RemoveOneNic.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+        </test>
+
+	<test>
+            <testName>FloppyDisk</testName>
+            <testScript>LIS_Floppy_Disk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Floppy_Disk.sh</files>
+            <setupScript>SetupScripts\AddFloppyDisk.ps1</setupScript>
+            <cleanupScript>SetupScripts\RemoveFloppyDisk.ps1</cleanupScript>
+	    <noReboot>False</noReboot>
+     	    <testParams>               
+                     <param>TC_COUNT=DSK-34</param>
+            </testParams>
+            <timeout>600</timeout>
+        </test>
+		
+		<test>
+            <testName>CDmount</testName>
+            <testScript>LIS_CD.sh</testScript>
+            <files>remote-scripts/ica/LIS_CD.sh</files>
+            <setupScript>setupScripts\InsertIsoInDvd.ps1</setupScript>
+            <cleanupScript>setupScripts\RemoveDvdDrive.ps1</cleanupScript> 
+            <testparams>
+                      <param>IsoFilename=CDTEST.iso</param> 
+                      <param>TC_COUNT=NLIS-10</param>
+            </testparams> 
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+        </test>
+
+
+
+	<test>
+            <testName>Copy_Large_File</testName>
+			<setupScript>SetupScripts\AddOneNic.ps1</setupScript>
+            <testScript>Secure_Copy.sh</testScript>
+            <files>remote-scripts/ica/Secure_Copy.sh, remote-scripts/ica</files>
+			<cleanupScript>SetupScripts\RemoveOneNic.ps1</cleanupScript>
+			<noReboot>False</noReboot>
+			<onError>Continue</onError>
+			<testparams>		
+				<param>FILE_PATH=/tmp/Data</param>  
+				<param>REPOSITORY_SERVER=10.200.41.67</param>
+				<param>TC_COUNT=NET-94</param>
+                <param>NIC=NetworkAdapter,External,ExternalNet,</param>		
+	    </testparams>
+     	    <timeout>18000</timeout>
+        </test>
+		
+		                      
+	<test>
+            <testName>ShutDownVM</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>SetupScripts\TestVMShutdown.ps1</testScript>
+            <files></files>
+	    <timeout></timeout>
+	    <testparams>		
+		<param>RootDir=D:\ICA\trunk\ica</param>                
+	    </testparams>
+	    <onError>Continue</onError>
+
+
+        </test>
+	<test>
+            <testName>VMHeartBeat</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>SetupScripts\TestVMHeartbeat.ps1</testScript>
+            <files></files>
+	    <timeout>600</timeout>
+        </test>
+	<test>
+            <testName>VerifyLISInstall</testName>
+            <testScript>LIS_verifyLIS.sh</testScript>
+            <files>remote-scripts\ica\LIS_verifyLIS.sh</files>
+           <setupScript>SetupScripts\AddOneNic.ps1</setupScript>
+           <testparams>
+                     <param>TC_COUNT=BVT-26,BVT-27</param>
+                     <param>NIC=NetworkAdapter,External,ExternalNet,</param>
+					 
+             </testparams>
+            <cleanupScript>SetupScripts\RemoveOneNic.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+        </test>
+	
+	    <test>
+            <testName>ICVersion</testName>
+            <testScript>LIS_IC_version.sh</testScript>
+            <files>remote-scripts\ica\LIS_IC_version.sh</files>
+            <testparams>
+                     <param>TC_COUNT=BVT-31</param>
+             </testparams>            
+            <timeout>600</timeout>
+            <OnError>Continue</OnError>
+			<noReboot>False</noReboot>
+        </test>
+
+
+	
+	<test>
+            <testName>SMP_VCPU</testName>
+            <setupScript>SetupScripts\ChangeCPU.ps1</setupScript>
+            <testScript>TC-3-VCPU.sh</testScript>
+            <files>remote-scripts/ica/TC-3-VCPU.sh</files>
+	    <testparams>		
+		<param>VCPU=2</param>                
+	    </testparams>
+ 	    <timeout>60</timeout>
+        </test>
+	<test>
+            <testName>AddPassThrough_Disk_IDE_1</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                
+                <param>NO=1</param>
+                <param>IDE=1,1,PassThrough</param>
+				<param>TEST_DEVICE1=/dev/sdb</param>
+				<param>TC_COUNT=TC46</param>
+            </testParams> 	         
+             <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+			<onError>Abort</onError>
+	    <timeout>10800</timeout>
+    </test>	
+	
+	<test>
+            <testName>AddPassThrough_Disk_IDE_0</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                
+                <param>NO=1</param>
+                <param>IDE=0,1,PassThrough</param>
+				<param>TEST_DEVICE1=/dev/sdb</param>
+				<param>TC_COUNT=TC45</param>
+            </testParams> 	         
+             <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+			<onError>Abort</onError>
+	    <timeout>10800</timeout>
+    </test>	
+	
+	<test>
+            <testName>AddPassThrough_Disk_SCSI</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <!--<param>SCSI_DISK=1</param>-->
+                <param>NO=1</param>
+                <param>SCSI=0,1,PassThrough</param>
+				<param>TEST_DEVICE1=/dev/sdb</param>
+				<param>TC_COUNT=TC47</param>
+            </testParams> 	         
+             <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+			<onError>Abort</onError>
+	    <timeout>10800</timeout>
+        </test>
+		
+		<test>
+                <testName>MultiDiskSCSI_Dynamic</testName>
+                <testScript>LIS_Addnewdisk.sh</testScript>
+                <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+                <setupScript>setupScripts\AddHardDisk.ps1</setupScript>
+                <cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+                <timeout>18000</timeout>
+                <testparams>
+                     <param>SCSI=0,0,Dynamic</param>
+                     <param>SCSI=0,1,Dynamic</param>
+                     <param>NO=2</param>
+                     <param>TEST_DEVICE1=/dev/sdb</param>
+                     <param>TEST_DEVICE2=/dev/sdc</param>
+                     <param>TC_COUNT=TC31</param>
+                </testparams>
+                <onError>Abort</onError>
+       </test>
+
+		<test>
+                <testName>MultiDiskSCSI_Fixed</testName>
+                <testScript>LIS_Addnewdisk.sh</testScript>
+                <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+                <setupScript>setupScripts\AddHardDisk.ps1</setupScript>
+                <cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+                <timeout>18000</timeout>
+                <testparams>
+                     <param>SCSI=0,0,Fixed</param>
+                     <param>SCSI=0,1,Fixed</param>
+                     <param>NO=2</param>
+                     <param>TEST_DEVICE1=/dev/sdb</param>
+                     <param>TEST_DEVICE2=/dev/sdc</param>
+                     <param>TC_COUNT=TC29</param>
+                </testparams>
+                <onError>Abort</onError>
+       </test>
+	   
+	   
+	
+	<test>
+            <testName>AddDisk_SCSI_DYNAMIC</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <!-- <param>SCSI_DISK=1</param> -->               
+				<param>SCSI=0,1,Dynamic</param>
+                <param>NO=1</param>
+                <param>TEST_DEVICE1=/dev/sdb</param>
+                <param>TC_COUNT=DSK_VHD-37</param>
+            </testParams> 	         
+            
+            <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+        </test>
+	<test>
+            <testName>AddDisk_SCSI_FIXED</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <!-- <param>SCSI_DISK=1</param> -->               
+				<param>SCSI=0,1,Fixed</param>
+                <param>NO=1</param>
+                <param>TEST_DEVICE1=/dev/sdb</param>
+                <param>TC_COUNT=DSK_VHD-38</param>
+            </testParams> 	         
+            
+            <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+        </test>
+	<test>
+            <testName>AddDisk_IDE_0_DYNAMIC</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <!-- <param>IDE_DISK=1</param> -->
+					<param>IDE=0,1,Dynamic</param>
+                    <param>NO=1</param>
+                    <param>TEST_DEVICE1=/dev/sdb</param>
+                    <param>TC_COUNT=DSK_VHD-36</param>
+            </testParams>           
+            <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+    </test>
+	<test>
+	        <testName>AddDisk_IDE_0_FIXED</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <!-- <param>IDE_DISK=1</param> -->
+					<param>IDE=0,1,Fixed</param>
+                    <param>NO=1</param>
+                    <param>TEST_DEVICE1=/dev/sdb</param>
+                    <param>TC_COUNT=DSK_VHD-37</param>
+            </testParams>           
+            <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+	</test>
+	
+	<test>
+	        <testName>AddDisk_IDE_1_DYNAMIC</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <!-- <param>IDE_DISK=1</param> -->
+					<param>IDE=1,1,Dynamic</param>
+                    <param>NO=1</param>
+                    <param>TEST_DEVICE1=/dev/sdb</param>
+                    <param>TC_COUNT=DSK_VHD-35</param>
+            </testParams>           
+            <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+	</test>
+    
+	<test>
+	        <testName>AddDisk_IDE_1_FIXED</testName>
+            <snapshotname>ICABase</snapshotname>
+            <setupScript>SetupScripts\AddHardDisk.ps1</setupScript>
+            <testParams>
+                <!-- <param>IDE_DISK=1</param> -->
+					<param>IDE=1,1,Fixed</param>
+                    <param>NO=1</param>
+                    <param>TEST_DEVICE1=/dev/sdb</param>
+                    <param>TC_COUNT=DSK_VHD-37</param>
+            </testParams>           
+            <testScript>LIS_Addnewdisk.sh</testScript>
+            <files>remote-scripts/ica/LIS_Addnewdisk.sh</files>
+            <cleanupScript>SetupScripts\RemoveHardDisk.ps1</cleanupScript>
+	    <timeout>10800</timeout>
+	</test>
+
+	<test>
+      	 	<testName>HotADD_Multi_Disk_SCSI_Fixed</testName>
+      		<testScript>multidisktest.sh</testScript>
+       		<files>remote-scripts/ica/multidisktest.sh</files>
+       		<preTest>setupScripts\AddHardDisk.ps1</preTest> 
+       		<cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+       		<timeout>18000</timeout>
+       		<testparams>
+           		<param>SCSI=0,1,Fixed</param>   
+			<param>SCSI=0,2,Fixed</param> 
+			<param>SCSI=0,3,Fixed</param> 
+			<param>SCSI=0,4,Fixed</param>   		      		
+       		</testparams>
+       		<onError>Abort</onError>
+    	</test>
+	<test>
+      	 	<testName>HotRemove_Multi_Disk_SCSI_Fixed</testName>
+      		<testScript>hot_remove.sh</testScript>
+       		<files>remote-scripts/ica/hot_remove.sh</files>
+       		<setupScript>setupScripts\AddHardDisk.ps1</setupScript> 
+       		<preTest>setupScripts\RemoveHardDisk.ps1</preTest>
+       		<timeout>18000</timeout>
+       		<testparams>
+           		<param>SCSI=0,1,Fixed</param>   
+			<param>SCSI=0,2,Fixed</param> 
+			<param>SCSI=0,3,Fixed</param> 
+			<param>SCSI=0,4,Fixed</param>      		      		
+       		</testparams>
+       		<onError>Abort</onError>
+    	</test>
+	<test>
+      	 	<testName>HotADD_Multi_Disk_SCSI_Dynamic</testName>
+      		<testScript>multidisktest.sh</testScript>
+       		<files>remote-scripts/ica/multidisktest.sh</files>
+       		<preTest>setupScripts\AddHardDisk.ps1</preTest> 
+       		<cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+       		<timeout>18000</timeout>
+       		<testparams>
+           		<param>SCSI=0,1,Dynamic</param>  
+			<param>SCSI=0,2,Dynamic</param>  
+			<param>SCSI=0,3,Dynamic</param>  
+			<param>SCSI=0,4,Dynamic</param>     		      		
+       		</testparams>
+       		<onError>Abort</onError>
+    	</test>
+	<test>
+      	 	<testName>HotRemove_Multi_Disk_SCSI_Dynamic</testName>
+      		<testScript>hot_remove.sh</testScript>
+       		<files>remote-scripts/ica/hot_remove.sh</files>
+       		<setupScript>setupScripts\AddHardDisk.ps1</setupScript> 
+       		<preTest>setupScripts\RemoveHardDisk.ps1</preTest>
+       		<timeout>18000</timeout>
+       		<testparams>
+           		<param>SCSI=0,1,Dynamic</param>    
+			<param>SCSI=0,2,Dynamic</param>  
+			<param>SCSI=0,3,Dynamic</param>  
+			<param>SCSI=0,4,Dynamic</param>   		      		
+       		</testparams>
+       		<onError>Abort</onError>
+    	</test>
+	<test>
+            <testName>linusTree</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>buildKernel.sh</testScript>
+            <files>remote-scripts/ica/buildKernel.sh</files>
+            <timeout>18000</timeout>
+            <testparams>
+                <param>TARBALL=linusMainCurrent.tar.bz2</param>
+                <param>ROOTDIR=linux-2.6</param>
+                <param>REPOSITORY_SERVER=10.200.49.192</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives</param>
+ 	    </testparams>
+	    <onError>Abort</onError>
+         </test>
+        <test>
+            <testName>linuxStable</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>buildKernel.sh</testScript>
+            <files>remote-scripts/ica/buildKernel.sh</files>
+            <timeout>18000</timeout>
+            <testparams>
+                <param>TARBALL=linuxStableCurrent.tar.bz2</param>
+                <param>ROOTDIR=linux-2.6.38</param>
+                <param>REPOSITORY_SERVER=10.200.49.192</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives</param>
+            </testparams>
+	    <onError>Abort</onError>
+        </test>
+	<test>
+            <testName>linuxNext</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>buildKernel.sh</testScript>
+            <files>remote-scripts/ica/buildKernel.sh</files>
+            <timeout>10800</timeout>
+            <testparams>
+                <param>TARBALL=linuxNextRCCurrent.tar.bz2</param>
+                <param>ROOTDIR=linux-next</param>
+                <param>REPOSITORY_SERVER=10.200.49.171</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives</param>
+            </testparams>
+	    <onError>Continue</onError>
+        </test>
+	<test>
+            <testName>Staging-Next</testName>
+            <testScript>buildKernel.sh</testScript>
+            <files>remote-scripts/ica/buildKernel.sh</files>
+            <timeout>10800</timeout>
+            <testparams>
+                <param>TARBALL=gregStagingNextCurrent.tar.bz2</param>
+                <param>ROOTDIR=staging-next</param>
+                <param>REPOSITORY_SERVER=10.200.49.192</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives</param>
+            </testparams>
+            <onError>Abort</onError>
+        </test>
+
+        <test>
+            <testName>GenerateCCReport</testName>
+            <testScript>lcov_gen_html.sh</testScript>
+            <files>remote-scripts/bin/lcov_gen_html.sh, remote-scripts/bin/ccrt.py</files>
+            <timeout>10800</timeout>
+            <testparams>
+                <param>LCOV_INFO_FILES_DIR=/root</param>
+                <param>LCOV_HTML_DIR=gcov_report</param>
+  		<param>CC_SERVER=10.200.49.183</param>
+            </testparams>
+            <uploadFiles>
+                <file>gcov_report.tar.bz2</file>
+            </uploadFiles>
+            <onError>Abort</onError>
+        </test>
+
+        <test>
+            <testName>WriteRouteToRCLocal</testName>
+            <testScript>write_route_to_rclocal.sh</testScript>
+            <files>remote-scripts/ica/write_route_to_rclocal.sh</files>
+            <timeout>10800</timeout>
+	    <noReboot>false</noReboot>
+            <onError>Abort</onError>
+        </test>
+		
+		<test>
+            <testName>lnstalllis</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>INSTALL-LIS-Distro.sh</testScript>
+            <files>remote-scripts/ica/INSTALL-LIS-Distro.sh</files>
+            <timeout>18000</timeout>
+            <testparams>
+                <param>TARBALL=latestlis.tar</param>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives</param>
+ 	    </testparams>
+	    <onError>Abort</onError>
+         </test>
+
+
+	
+
+    </testCases>
+
+    <VMs>
+        <vm>
+            <hvServer>LISINTER710-10</hvServer>
+            <vmName>Rhel6.4-Sustain</vmName>
+            <os>Linux</os>
+            <ipv4>10.200.51.197</ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>SustainingTests</suite>
+		<testparams>
+                 <param>NIC=,,,0000d3000025</param>
+                <param>RootDir=D:\Sustaining Tests - ICA\Code</param>
+                 
+                <param>HYPERV_MODULES=(hv_vmbus hv_storvsc hv_utils hid-hyperv hv_netvsc)</param>
+            </testparams>
+
+        </vm>
+
+	<!-- <vm>
+            <hvServer>OSTC-VIRT-01</hvServer>
+            <vmName>SustainSLES</vmName>
+            <os>Linux</os>
+            <ipv4>10.200.41.199</ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>SustainingTests</suite>
+		<testparams>
+                 <param>NIC=,,,0000d3000035</param>
+                <param>RootDir=D:\Sustaining Tests - ICA\Code</param>
+                 
+                <param>HYPERV_MODULES=(hv_vmbus hv_storvsc hv_utils hid-hyperv hv_netvsc)</param>
+            </testparams>
+
+        </vm> -->
+		
+		<vm>
+            <hvServer>LISINTER710-10</hvServer>
+            <vmName>SustainUbuntu12.04</vmName>
+            <os>Linux</os>
+            <ipv4>10.200.50.25</ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>SustainingTests</suite>
+		<testparams>
+                 <param>NIC=,,,0000d3000045</param>
+                <param>RootDir=D:\Sustaining Tests - ICA\Code</param>
+                 
+                <param>HYPERV_MODULES=(hv_vmbus hv_storvsc hv_utils hid-hyperv hv_netvsc)</param>
+            </testparams>
+
+        </vm>
+
+
+    </VMs>
+
+</config>
+

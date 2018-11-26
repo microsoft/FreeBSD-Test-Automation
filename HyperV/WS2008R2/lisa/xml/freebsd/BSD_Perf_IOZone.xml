@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>e:\src\git\bis-test\WS2012R2\lisa\TestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+							<to>likezh@microsoft.com</to>
+            </recipients>
+            <sender>likezh@microsoft.com</sender>
+            <subject>BIS_IO_tests</subject>
+            <smtpServer>smtphost.redmond.corp.microsoft.com</smtpServer>
+        </email>
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>IOZone</suiteName>
+            <suiteTests>
+                <suiteTest>Performance_IOzone</suiteTest>
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+         <test> 
+            <testName>Performance_IOzone</testName> 
+            <testScript>Performance_IOzone.sh</testScript>
+            <files>remote-scripts/freebsd/Performance_IOzone.sh</files>
+            <files>Tools/iozone3_420.tar</files>
+            <setupScript>setupScripts\Performance_IOzone_AddVhd.ps1</setupScript> 
+						<cleanupScript>setupScripts\RevertSnapshot.ps1</cleanupScript>
+            <timeout>18000</timeout> 
+            <testParams>  
+                <param>SCSI=0,0,Fixed,512</param> 
+                <param>TOTAL_DISKS=1</param> 
+                <param>TEST_DEVICE1=/dev/da1</param>  
+                <param>FILE_NAME=iozone3_420.tar</param>
+                <param>SnapshotName=ICABase</param> 
+                <param>IOZONE_PARAMS='-s 4G -r 4K -i 0 -i 1 -i 2 -l 4 -u 4 -I'</param>
+            </testParams> 
+            <uploadFiles>
+                <file>IOZoneLog.log</file>
+                <file>IOZoneResult.xls</file>				
+            </uploadFiles>
+            <onError>Continue</onError> 
+            <noReboot>False</noReboot> 
+        </test>
+    </testCases>
+    
+    
+    <VMs>
+        <vm>
+            <hvServer>localhost</hvServer>
+            <vmName>FreeBSD10_x64_CLEAN</vmName>
+            <os>FreeBSD</os>
+            <ipv4></ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>IOZone</suite>
+        </vm>
+    </VMs>
+</config>

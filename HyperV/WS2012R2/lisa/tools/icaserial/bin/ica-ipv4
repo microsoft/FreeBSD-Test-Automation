@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys
+import icatest
+import icatest.daemon
+import icatest.errors
+#
+# Command line format:
+#     ica-ipv4 get macaddr=11:22:33:44:55:66
+# or
+#     ica-ipv4 get macaddr=112233445566
+#
+
+if len(sys.argv) != 3:
+    print ("Invalid parameter")
+    print ("Usage: %s get macaddr=<MAC address>" % sys.argv[0])
+    sys.exit(icatest.errors.ERROR_INVALID_PARAMETER)
+if sys.argv[1].lower() != "get":
+    print ("Verb not supported: %s" % sys.argv[1])
+    sys.exit(icatest.errors.ERROR_INVALID_PARAMETER)
+
+params = icatest.daemon.parse_params(sys.argv[2], case_sensitive = False)
+if params is None:
+    print ("Error: Bad parameter format: %s" % sys.argv[2])
+    sys.exit(icatest.errors.ERROR_INVALID_PARAMETER)
+
+macaddr = params.get("macaddr")
+if macaddr is None:
+    print ("Error: macaddr attribute is required")
+    sys.exit(icatest.errors.ERROR_INVALID_PARAMETER)
+
+code, msg = icatest.platform_lib.get_addr_by_mac_address(macaddr, "ipv4")
+print (msg)
+sys.exit(code)
+# vim: ff=unix expandtab shiftwidth=4

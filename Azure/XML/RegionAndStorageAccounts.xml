@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllRegions>
+	<eastus2>
+		<StandardStorage>freebsdeastus2v1</StandardStorage>
+		<PremiumStorage>freebsdeastus2v2</PremiumStorage>
+	</eastus2>
+	<australiaeast>
+		<StandardStorage>freebsdaustraliaeastv1</StandardStorage>
+		<PremiumStorage>freebsdaustraliaeastv2</PremiumStorage>
+	</australiaeast>
+	<southeastasia>
+		<StandardStorage>freebsdsoutheastasiav1</StandardStorage>
+		<PremiumStorage>freebsdsoutheastasiav2</PremiumStorage>
+	</southeastasia>
+	<westcentralus>
+		<StandardStorage>freebsdwestcentralusv1</StandardStorage>
+		<PremiumStorage>freebsdwestcentralusv2</PremiumStorage>
+	</westcentralus>
+	<eastus>
+		<StandardStorage>freebsdeastusv1</StandardStorage>
+		<PremiumStorage>freebsdeastusv2</PremiumStorage>
+	</eastus>
+</AllRegions>

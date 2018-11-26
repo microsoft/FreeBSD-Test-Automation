@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import os
+import sys
+import atexit
+import signal
+import syslog
+import icatest
+import icatest.errors
+import icatest.daemon
+
+if len(sys.argv) != 4:
+    print ("Usage: %s <listen pipe> <response pipe> <pid file>" % sys.argv[0])
+    sys.exit(icatest.errors.ERROR_INVALID_PARAMETER)
+pipe_path_read = sys.argv[1]
+pipe_path_write = sys.argv[2]
+pid_file = sys.argv[3]
+
+log_name = os.path.basename(sys.argv[0])
+syslog.openlog(log_name)
+def start_launcher():
+    launcher = icatest.daemon.ICALauncher(pipe_path_read, pipe_path_write)
+    launcher.start()
+
+def cleanup_icalauncher():
+    if os.path.exists(pid_file):
+        os.unlink(pid_file)
+
+def on_sigterm(signum, frame):
+    msg = "ICALauncher (%d) attempts to exit gracefully." % os.getpid()
+    icatest.daemon.write_log(icatest.daemon.STDOUT_FD, None, icatest.errors.ERROR_SUCCESS, msg)
+    cleanup_icalauncher()
+    os._exit(icatest.daemon.ERROR_SUCCESS)
+
+atexit.register(cleanup_icalauncher)
+signal.signal(signal.SIGTERM, on_sigterm)
+signal.signal(signal.SIGINT, on_sigterm)
+signal.signal(signal.SIGHUP, on_sigterm)
+
+try:
+    flag = os.O_CREAT|os.O_EXCL|os.O_WRONLY
+    fd = os.open(pid_file, flag, 0600)
+except OSError:
+    ret = icatest.errors.ERROR_BAD_ENVIRONMENT
+    msg = "Launcher is already running."
+    icatest.daemon.write_log(icatest.daemon.STDERR_FD, None, ret, msg)
+    os._exit(ret) # Leave existing pid file there.
+try:
+    icatest.daemon.start_daemon(start_launcher, pid_fd = fd)
+except Exception:
+    ret = icatest.errors.ERROR_BAD_ENVIRONMENT
+    msg = "Failed to start launcher process as daemon."
+    icatest.daemon.write_log(icatest.daemon.STDERR_FD, None, ret, msg)
+    sys.exit(ret)
+sys.exit(icatest.daemon.ERROR_SUCCESS)
+# vim: ff=unix expandtab shiftwidth=4

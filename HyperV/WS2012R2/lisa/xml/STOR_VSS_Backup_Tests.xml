@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Linux on Hyper-V and Azure Test Code, ver. 1.0.0
+    Copyright (c) Microsoft Corporation
+
+
+    All rights reserved. 
+    Licensed under the Apache License, Version 2.0 (the ""License"");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+        http://www.apache.org/licenses/LICENSE-2.0  
+
+
+    THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS
+    OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION
+    ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR
+    PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+
+    See the Apache Version 2.0 License for specific language governing
+    permissions and limitations under the License.
+-->
+
+<config>
+    <global>
+        <logfileRootDir>C:\Lisa\TestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+                <to>myself@mycompany.com</to>
+            </recipients>
+            <sender>myself@mycompany.com</sender>
+            <subject>LIS_STOR_VSS_Backup_tests_WS2012R2</subject>
+            <smtpServer>mysmtphost.mycompany.com</smtpServer>
+        </email>
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>STOR_VSS</suiteName>
+            <suiteTests>
+                <suiteTest>STOR_VSS_BackupRestore</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_ext3_vhd</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_ext4_vhd</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_reiserfs_vhd</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_ext4_vhdx</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_ISO_NoNetwork</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_3Chain_VHD</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_State_Off</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_State_Paused</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_Fail</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_PassTru</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_ISCSI</suiteTest>
+                <suiteTest>STOR_VSS_BackupRestore_DiskStress</suiteTest>
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+        <test>
+            <testName>STOR_VSS_BackupRestore</testName>
+            <testScript>setupscripts\STOR_VSS_BackupRestore.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-17,VSS-06</param>
+                <param>DriveLetter=C:</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_ext3_vhd</testName>
+            <setupScript>setupscripts\AddHardDisk.ps1</setupScript>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_Partition.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-01</param>
+                <param>DriveLetter=C:</param>
+                <param>SCSI=0,1,Dynamic</param>
+                <param>IDE=0,1,Dynamic</param>
+                <param>FILESYS=ext3</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_ext4_vhd</testName>
+            <setupScript>setupscripts\AddHardDisk.ps1</setupScript>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_Partition.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-02</param>
+                <param>DriveLetter=C:</param>
+                <param>SCSI=0,1,Dynamic</param>
+                <param>IDE=0,1,Dynamic</param>
+                <param>FILESYS=ext4</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_reiserfs_vhd</testName>
+            <setupScript>setupscripts\AddHardDisk.ps1</setupScript>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_Partition.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-03</param>
+                <param>DriveLetter=C:</param>
+                <param>SCSI=0,1,Dynamic</param>
+                <param>IDE=0,1,Dynamic</param>
+                <param>FILESYS=reiserfs</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_ext4_vhdx</testName>
+            <setupScript>setupscripts\AddVhdxHardDisk.ps1</setupScript>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_Partition.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-05</param>
+                <param>DriveLetter=C:</param>
+                <param>SCSI=0,1,Dynamic</param>
+                <param>IDE=0,1,Dynamic</param>
+                <param>FILESYS=ext4</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_ISO_NoNetwork</testName>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_ISO_NoNetwork.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-11</param>
+                <param>DriveLetter=C:</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_3Chain_VHD</testName>
+            <testScript>setupscripts\STOR_VSS_3Chain_VHD_backup.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-12</param>
+                <param>DriveLetter=C:</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_ISCSI</testName>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_ISCSI.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-13</param>
+                <param>DriveLetter=C:</param>
+                <param>TargetIP=10.7.1.10</param>
+                <param>IQN=iqn.2000-01.com:test-iqn</param> <!--optional, use it if more than one IQN is present -->
+                <param>FILESYS=ext4</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_DiskStress</testName>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_DiskStress.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-14</param>
+                <param>DriveLetter=C:</param>
+                <param>iOzoneVers=3_424</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_State_Off</testName>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_State.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-15</param>
+                <param>DriveLetter=C:</param>
+                <param>vmState=Off</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_State_Paused</testName>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_State.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-15</param>
+                <param>DriveLetter=C:</param>
+                <param>vmState=Paused</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_PassTru</testName>
+            <setupScript>setupscripts\AddHardDisk.ps1</setupScript>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_Partition.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-16</param>
+                <param>DriveLetter=C:</param>
+                <param>SCSI=0,1,PassThrough</param>
+                <param>FILESYS=ext3</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+
+        <test>
+            <testName>STOR_VSS_BackupRestore_Fail</testName>
+            <setupScript>setupscripts\AddHardDisk.ps1</setupScript>
+            <testScript>setupscripts\STOR_VSS_BackupRestore_Fail.ps1</testScript> 
+            <testParams>
+                <param>TC_COVERED=VSS-18</param>
+                <param>DriveLetter=C:</param>
+                <param>SCSI=0,1,Dynamic</param>
+                <param>IDE=0,1,Dynamic</param>
+                <param>FILESYS=ext3</param>
+                <param>snapshotName=ICABase</param>
+            </testParams>
+            <timeout>2400</timeout>
+            <OnError>Continue</OnError>
+            <cleanupScript>setupscripts\RevertSnapshot.ps1</cleanupScript>
+        </test>
+    </testCases>
+
+    <VMs>
+        <vm>
+            <hvServer>localhost</hvServer>
+            <vmName>VM_NAME</vmName>
+            <os>Linux</os>
+            <ipv4></ipv4>
+            <sshKey>PKI_id_rsa.ppk</sshKey>
+            <suite>STOR_VSS</suite>
+        </vm>
+    </VMs>
+</config>

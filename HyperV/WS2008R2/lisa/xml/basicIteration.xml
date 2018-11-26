@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>\\localhost\Public\LisaTestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+                <to>nmeier@microsoft.com</to>
+            </recipients>
+            <sender>nmeier@microsoft.com</sender>
+            <subject>Basic test run on </subject>
+            <smtpServer>smtphost.redmond.corp.microsoft.com</smtpServer>
+        </email>
+
+        <testparams>
+            <param>gPsParam=Global test param</param>
+        </testparams>
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>Simple</suiteName>
+            <suiteTests>
+            <!--    <suiteTest>SimplePS</suiteTest>  -->
+                <suiteTest>SimpleErr</suiteTest>
+                <suiteTest>Simple</suiteTest>
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+	<test>
+            <testName>Simple</testName>
+            <testScript>simple.sh</testScript>
+            <files>remote-scripts/ica/simple.sh</files>
+            <cleanupScript>setupScripts\AddComment.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <testparams>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives</param>
+                <param>SLEEP_TIMEOUT=10</param>
+                <param>vmComment=This comment was created by cleanup script</param>
+            </testparams>
+            <maxIterations>3</maxIterations>
+            <iterationParams>
+                <param>p1</param>
+                <param>p2</param>
+                <param>p3</param>
+            </iterationParams>
+            <onError>Abort</onError>
+            <noReboot>True</noReboot>
+        </test>
+
+	<test>
+            <testName>SimpleErr</testName>
+            <testScript>simpleErr.sh</testScript>
+            <files>remote-scripts/ica/simpleErr.sh</files>
+            <setupScript>setupScripts\AddComment.ps1</setupScript>
+            <timeout>600</timeout>
+            <testparams>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives2</param>
+                <param>vmComment=This comment was created by setup script</param>
+            </testparams>
+            <onError>Continue</onError>
+            <noReboot>True</noReboot>
+        </test>
+
+	<test>
+            <testName>SimplePS</testName>
+            <testScript>setupScripts\simplePS.ps1</testScript>
+            <files>setupScripts\simplePS.ps1</files>
+            <timeout>600</timeout>
+            <testparams>
+                <param>REPOSITORY_SERVER=10.200.41.67</param>
+                <param>REPOSITORY_PATH=/icaRepository/archives2</param>
+                <param>tPsParam=Test specific parameter</param>
+            </testparams>
+            <onError>Continue</onError>
+            <noReboot>True</noReboot>
+        </test>
+    </testCases>
+
+    <VMs>
+	 <vm>
+            <hvServer>nmeier2</hvServer>
+            <vmName>Fed13x64</vmName>
+            <os>Linux</os>
+            <ipv4>157.59.84.93</ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>Simple</suite>
+            <testParams>
+                <param>vPsParam=VM specific test param</param>
+                <param>vm2=222</param>
+            </testParams>
+        </vm>
+    </VMs>
+</config>
+

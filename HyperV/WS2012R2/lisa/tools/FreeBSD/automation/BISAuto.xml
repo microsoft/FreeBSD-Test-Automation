@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>C:\LisaTestResults\</logfileRootDir>
+		<arpServer>SH-OSTC-TH54dup</arpServer>
+		<defaultBranch>dev</defaultBranch>
+    </global>
+	
+    <VMs>        
+       <vm>
+            <vmName>FreeBSD_head_x64</vmName>
+        </vm>    
+	   	<vm>
+			<vmName>FreeBSD_head_x32</vmName>
+        </vm>	      
+
+     </VMs>
+</config>
+

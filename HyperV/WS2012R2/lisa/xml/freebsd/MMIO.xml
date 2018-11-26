@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>C:\lisa\TestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+            <to>recipients@mycompany.com</to>
+            </recipients>
+            <sender>me@mycompany.com</sender>
+            <subject>MMIOTest</subject>
+            <smtpServer>smtphost.mycompany.com</smtpServer>
+        </email>
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>MMIOTests</suiteName>
+            <suiteTests>
+            <suiteTest>VerifyMMIOGapSize</suiteTest>
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+         <test>
+            <testName>VerifyMMIOGapSize</testName>     
+            <setupScript>setupScripts\ConfigureMMIOGapSize.ps1</setupScript>
+            <testParams>
+		        <param>GAPSIZE=256</param>
+		        <param>PIPE=freebsd-dbg</param>
+            </testParams>
+            <timeout>600</timeout>
+            <OnError>Continue</OnError>
+            <noReboot>True</noReboot>
+         </test>
+    </testCases>
+    
+    <VMs>
+        <vm>
+            <hvServer>SERVER</hvServer>
+            <vmName>VMNAME</vmName>
+            <os>FreeBSD</os>
+            <ipv4></ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>MMIOTests</suite>
+        </vm>
+    </VMs>
+</config>

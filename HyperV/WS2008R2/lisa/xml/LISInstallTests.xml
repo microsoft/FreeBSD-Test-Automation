@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+    <global>
+        <logfileRootDir>TestResults</logfileRootDir>
+        <defaultSnapshot>ICABase</defaultSnapshot>
+        <email>
+            <recipients>
+                <to>v-ampaw@microsoft.com</to>
+				<to>vijayt@microsoft.com</to>
+				
+            </recipients>
+            <sender>v-ampaw@microsoft.com</sender>
+            <subject>LIS BVT Try run on WS2012</subject>
+            <smtpServer>smtphost.redmond.corp.microsoft.com</smtpServer>
+        </email>
+
+        <!-- Optional testParams go here -->
+    </global>
+
+    <testSuites>
+        <suite>
+            <suiteName>Try</suiteName>
+            <suiteTests>
+				
+				
+				<suiteTest>Install-LIS</suiteTest>
+				<suiteTest>ICVersion</suiteTest>
+				<suiteTest>Upgrade-LIS</suiteTest>
+				<suiteTest>VerifyLISInstall</suiteTest>
+				<suiteTest>ICVersion_New</suiteTest>
+				<suiteTest>UnInstall-LIS</suiteTest>
+				<suiteTest>VerifyNoLIS</suiteTest>
+				<suiteTest>LIS-GetTarBall</suiteTest>
+				
+				
+       
+            </suiteTests>
+        </suite>
+    </testSuites>
+
+    <testCases>
+
+        
+		
+		<test>
+            <testName>Install-LIS</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>LIS_Installation.sh</testScript>
+            <files>remote-scripts/ica/LIS_Installation.sh</files>
+            <timeout>18000</timeout>
+            <testparams>
+                <param>TARBALL=lisV3.1.tar.gz</param>
+                <param>REPOSITORY_SERVER=10.200.49.171</param>
+                <param>REPOSITORY_PATH=/icaRepository/LIS</param>
+				<param>TC_COUNT=BVT-15</param>
+				<param>MODE=script</param>
+ 	    </testparams>
+	    <onError>Continue</onError>
+        </test>
+		
+		<test>
+            <testName>UnInstall-LIS</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>LIS_UnInstall.sh</testScript>
+            <files>remote-scripts/ica/LIS_UnInstall.sh</files>
+            <timeout>18000</timeout>
+            <testparams>
+				<param>TC_COUNT=BVT-33</param>
+ 	    </testparams>
+	    <onError>Continue</onError>
+        </test>
+		
+		<test>
+            <testName>Upgrade-LIS</testName>
+            <snapshotname>ICABase</snapshotname>
+            <testScript>LIS_Upgrade.sh</testScript>
+            <files>remote-scripts/ica/LIS_Upgrade.sh</files>
+            <timeout>18000</timeout>
+            <testparams>
+                <param>TARBALL=lisV3.4.tar.gz</param>
+                <param>REPOSITORY_SERVER=10.200.49.171</param>
+                <param>REPOSITORY_PATH=/icaRepository/LIS</param>
+				<param>TC_COUNT=BVT-16</param>
+ 	    </testparams>
+	    <onError>Continue</onError>
+        </test>
+		
+	<test>
+            <testName>VerifyLISInstall</testName>
+            <testScript>LIS_verifyLIS.sh</testScript>
+            <files>remote-scripts\ica\LIS_verifyLIS.sh</files>
+           <setupScript>SetupScripts\AddNic.ps1</setupScript>
+           <testparams>
+                     <param>TC_COUNT=BVT-26,BVT-27</param>
+                     <param>NIC=NetworkAdapter,External,ExternalNet</param>
+					 
+             </testparams>
+            <cleanupScript>SetupScripts\RemoveNic.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+        </test>
+		
+		<test>
+            <testName>ICVersion_New</testName>
+            <testScript>LIS_IC_version.sh</testScript>
+            <files>remote-scripts\ica\LIS_IC_version.sh</files>
+            <testparams>
+                     <param>TC_COUNT=BVT-31</param>
+             </testparams>            
+            <timeout>600</timeout>
+            <OnError>Continue</OnError>
+			<noReboot>False</noReboot>
+        </test>
+		
+		<test>
+            <testName>ICVersion</testName>
+            <testScript>LIS_IC_version.sh</testScript>
+            <files>remote-scripts\ica\LIS_IC_version.sh</files>
+            <testparams>
+                     <param>TC_COUNT=BVT-31</param>
+             </testparams>            
+            <timeout>600</timeout>
+            <OnError>Continue</OnError>
+			<noReboot>False</noReboot>
+        </test>
+		
+		<test>
+            <testName>VerifyNoLIS</testName>
+            <testScript>LIS_verifyNoLIS.sh</testScript>
+            <files>remote-scripts\ica\LIS_verifyNoLIS.sh</files>
+            <testparams>
+                     <param>TC_COUNT=BVT-33</param>
+					 <param>HYPERV_MODULES=(hv_vmbus hv_storvsc hv_utils hid_hyperv hv_netvsc)</param>
+             </testparams>            
+            <timeout>600</timeout>
+            <OnError>Continue</OnError>
+			<noReboot>False</noReboot>
+        </test>
+		<test>
+            <testName>LIS-GetTarBall</testName>
+            <testScript>LIS_GetTarBall.sh</testScript>
+            <files>remote-scripts/ica/LIS_GetTarBall.sh</files>
+            <setupScript>setupScripts\InsertIsoInDvd.ps1</setupScript>
+            <cleanupScript>setupScripts\RemoveDvdDrive.ps1</cleanupScript>
+            <uploadFiles>
+			    <file>LinuxICv33.tar.gz</file>
+			</uploadFiles>
+            <testparams>
+                <param>IsoFilename=LinuxICv33.iso</param> 
+                <!-- <param>REPOSITORY_SERVER=10.200.49.171</param>
+                <param>REPOSITORY_PATH=/icaRepository/LIS</param> -->
+            </testparams> 
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+        </test>
+		 
+		 
+	
+	
+	
+
+    </testCases>
+
+    <VMs>
+        <vm>
+            <hvServer>LISINTER710-2</hvServer>
+            <vmName>LISAuto</vmName>
+            <os>Linux</os>
+            <ipv4>10.200.50.9</ipv4>
+            <sshKey>rhel5_id_rsa.ppk</sshKey>
+            <suite>Try</suite>
+		<testparams>
+                 <!--<param>NIC=,,,0000d3000040</param>-->
+                <param>RootDir=D:\SustainingTests-ICA\Code</param>
+                 
+            </testparams>
+
+        </vm>
+
+	
+
+
+    </VMs>
+
+</config>
+

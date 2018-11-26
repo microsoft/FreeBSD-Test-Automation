@@ -1,0 +1,27 @@
+#! /bin/sh
+#
+# PROVIDE: ica_daemon
+# REQUIRE: DAEMON
+# KEYWORD: shutdown
+#
+# This script will enable icadaemon at startup time.
+#
+# Add the following lines to /etc/rc.conf to enable ica_daemon:
+#
+# ica_daemon_enable="YES"
+# 
+# Author: Like Zhu (likezh@microsoft.com)
+#
+
+. /etc/rc.subr
+
+name="icadaemon"
+rcvar="ica_daemon_enable"
+
+command="/usr/local/bin/${name}"
+command_args=""
+
+pidfile="/var/run/${name}.pid"
+
+load_rc_config $name
+run_rc_command "$1"
