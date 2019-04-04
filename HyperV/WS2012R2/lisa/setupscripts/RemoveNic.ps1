@@ -96,13 +96,13 @@ $params = $testParams.Split(';')
 foreach ($p in $params)
 {
     $temp = $p.Trim().Split('=')
-    
+
     if ($temp.Length -ne 2)
     {
         # Ignore and move on to the next parameter
         continue
     }
-    
+
     #
     # Is this a NIC=* parameter
     #
@@ -114,25 +114,24 @@ foreach ($p in $params)
         {
             "Error: Incorrect number of arguments for NIC test parameter: $p"
             return $false
-
         }
-        
+
         $nicType = $nicArgs[0].Trim()
         $networkType = $nicArgs[1].Trim()
         $networkName = $nicArgs[2].Trim()
         #$macAddress = $nicArgs[3].Trim()
         $legacy = $false
-        
+
         #
         # Validate the network adapter type
         #
-        if (@("NetworkAdapter", "LegacyNetworkAdapter") -notcontains $nicType)
+        if (@("NetworkAdapter", "LegacyNetworkAdapter","SRIOV") -notcontains $nicType)
         {
             "Error: Invalid NIC type: $nicType"
             "       Must be either 'NetworkAdapter' or 'LegacyNetworkAdapter'"
             return $false
         }
-        
+
         if ($nicType -eq "LegacyNetworkAdapter")
         {
             $legacy = $true
@@ -163,17 +162,16 @@ foreach ($p in $params)
             return $false
         }
 
-       
         #
         # Get all the NICs on the VM. Then delete new NICs of the requested type.
         #
         $nics = Get-VMNetworkAdapter -VMName $vmName -ComputerName $hvServer -IsLegacy:$legacy
         if ($nics)
         {
-			for( $i = 1; $i -lt $nics.length; $i++)
-			{
-			    $nics[$i] | Remove-VMNetworkAdapter -Confirm:$false
-			}
+            for( $i = 1; $i -lt $nics.length; $i++)
+            {
+                $nics[$i] | Remove-VMNetworkAdapter -Confirm:$false
+            }
             $retVal = $True
         }
         else

@@ -24,58 +24,58 @@
     </global>
 
     <testSuites>
-        <suite>    
+        <suite>
             <suiteName>debug</suiteName>
             <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
-                <suiteTest>VmbusVerifyInterrupts</suiteTest>	
+                <suiteTest>VmbusVerifyInterrupts</suiteTest>
             </suiteTests>
-        </suite>   
-                
+        </suite>
+
         <suite>
             <suiteName>BasicTest</suiteName>
             <suiteTests>
-				<suiteTest>BuildKernel</suiteTest>
+                <suiteTest>BuildKernel</suiteTest>
                 <suiteTest>GetSystemInfo</suiteTest>
                 <suiteTest>Heartbeat</suiteTest>
-                <suiteTest>Reboot_CTRL-ALT-DEL</suiteTest>   
-                
+                <suiteTest>Reboot_CTRL-ALT-DEL</suiteTest>
+
                 <suiteTest>AddFixedIDEDrive</suiteTest>
-                <suiteTest>AddDynamicIDEDrive0</suiteTest> 
-                <suiteTest>AddDifferencingIDEDrive</suiteTest>  
+                <suiteTest>AddDynamicIDEDrive0</suiteTest>
+                <suiteTest>AddDifferencingIDEDrive</suiteTest>
                 <suiteTest>AddFixedSCSIDriveVHDX</suiteTest>
-               
+
                 <suiteTest>TakeSnapShot</suiteTest>
-                <suiteTest>RevertSnapShot</suiteTest> 
-            
-                <suiteTest>AddDynamicSCSIDrive</suiteTest> 
+                <suiteTest>RevertSnapShot</suiteTest>
+
+                <suiteTest>AddDynamicSCSIDrive</suiteTest>
                 <suiteTest>AddFixedSCSIDrive</suiteTest>
-                <suiteTest>AddDifferencingSCSIDrive</suiteTest>   
-                <suiteTest>AddPassThroughSCSIDrive_Multi</suiteTest>                               
-                <suiteTest>AddPassThroughIDEDrive1</suiteTest> 
+                <suiteTest>AddDifferencingSCSIDrive</suiteTest>
+                <suiteTest>AddPassThroughSCSIDrive_Multi</suiteTest>
+                <suiteTest>AddPassThroughIDEDrive1</suiteTest>
 
                 <suiteTest>AddDynamicIDEDriveVHDX0</suiteTest>
-                <suiteTest>AddFixedIDEDriveVHDX</suiteTest>           
-                
-				<suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
-				<suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
-				<suiteTest>HotAddDynamicSCSIDriveVHDX</suiteTest>
-				<suiteTest>HotRemoveDynamicSCSIDriveVHDX</suiteTest>
-				
+                <suiteTest>AddFixedIDEDriveVHDX</suiteTest>
+
+                <suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
+                <suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
+                <suiteTest>HotAddDynamicSCSIDriveVHDX</suiteTest>
+                <suiteTest>HotRemoveDynamicSCSIDriveVHDX</suiteTest>
+
                 <suiteTest>ReadKvpIntrinsicData</suiteTest>
                 <suiteTest>WriteKvpDataToGuest</suiteTest>
                 <suiteTest>ModifyKvpDataOnGuest</suiteTest>
                 <suiteTest>DeleteKvpDataOnGuest</suiteTest>
                 <suiteTest>ReadKvpNonIntrinsicData</suiteTest>
                 <suiteTest>KvpGetVmIpOnHost</suiteTest>
-                <suiteTest>OnGuestReadHostKvpData</suiteTest>       
+                <suiteTest>OnGuestReadHostKvpData</suiteTest>
 
-                <suiteTest>ExternalSynthNetAdapter</suiteTest>    
+                <suiteTest>ExternalSynthNetAdapter</suiteTest>
 
                 <suiteTest>CheckCPUCount-4</suiteTest>
-                <suiteTest>ShutdownFromHyperV-4</suiteTest>  				
+                <suiteTest>ShutdownFromHyperV-4</suiteTest>
             </suiteTests>
         </suite>
 
@@ -85,29 +85,29 @@
                 <suiteTest>BuildKernel</suiteTest>
                 <suiteTest>GetSystemInfo</suiteTest>
                 <suiteTest>Heartbeat</suiteTest>
-                <suiteTest>Reboot_CTRL-ALT-DEL</suiteTest>   
-				
+                <suiteTest>Reboot_CTRL-ALT-DEL</suiteTest>
+
                 <suiteTest>CheckCPUCount-2</suiteTest>
-				<suiteTest>ShutdownFromHyperV-2</suiteTest>
-				<suiteTest>CheckMemoryCapacity-2GB</suiteTest>
-				<suiteTest>CheckMemoryCapacity-512MB</suiteTest>
-				
-				<suiteTest>TimeSync</suiteTest>
+                <suiteTest>ShutdownFromHyperV-2</suiteTest>
+                <suiteTest>CheckMemoryCapacity-2GB</suiteTest>
+                <suiteTest>CheckMemoryCapacity-512MB</suiteTest>
+
+                <suiteTest>TimeSync</suiteTest>
                 <suiteTest>TimeSync_SavedVM</suiteTest>
-				
+
                 <suiteTest>AddFixedIDEDrive</suiteTest>
                 <suiteTest>AddDynamicIDEDrive_Multi</suiteTest>
-                <suiteTest>AddDifferencingIDEDrive</suiteTest>  
+                <suiteTest>AddDifferencingIDEDrive</suiteTest>
                 <suiteTest>AddFixedSCSIDriveVHDX</suiteTest>
-               
+
                 <suiteTest>TakeSnapShot</suiteTest>
-                <suiteTest>RevertSnapShot</suiteTest> 
-            
+                <suiteTest>RevertSnapShot</suiteTest>
+
                 <suiteTest>AddFixedSCSIDrive</suiteTest>
-                <suiteTest>AddDifferencingSCSIDrive</suiteTest>       
-                
-                <suiteTest>AddPassThroughSCSIDrive_Multi</suiteTest>                                   
-                <suiteTest>AddPassThroughIDEDrive0</suiteTest>                                
+                <suiteTest>AddDifferencingSCSIDrive</suiteTest>
+
+                <suiteTest>AddPassThroughSCSIDrive_Multi</suiteTest>
+                <suiteTest>AddPassThroughIDEDrive0</suiteTest>
                 <suiteTest>AddPassThroughIDEDrive1_Multi</suiteTest>
 
                 <suiteTest>4K_AddDynamicIDEDriveVHDX0</suiteTest>
@@ -115,14 +115,14 @@
                 <suiteTest>4K_AddFixedIDEDriveVHDX</suiteTest>
                 <suiteTest>AddDynamicIDEDriveVHDX0</suiteTest>
                 <suiteTest>AddDynamicIDEDriveVHDX1</suiteTest>
-                <suiteTest>AddFixedIDEDriveVHDX</suiteTest>   
-                <suiteTest>AddDifferencingIDEDriveVHDx4k</suiteTest>    
-                
+                <suiteTest>AddFixedIDEDriveVHDX</suiteTest>
+                <suiteTest>AddDifferencingIDEDriveVHDx4k</suiteTest>
+
                 <suiteTest>4K_AddFixedSCSIDriveVHDX</suiteTest>
                 <suiteTest>AddDifferencingSCSIDriveVHDx4k</suiteTest>
-                <suiteTest>4K_AddMultipleVHDX_IDE0</suiteTest>        
-                <suiteTest>4K_AddDynamicVHDX_SCSIDrive_Multi</suiteTest>            
-                          
+                <suiteTest>4K_AddMultipleVHDX_IDE0</suiteTest>
+                <suiteTest>4K_AddDynamicVHDX_SCSIDrive_Multi</suiteTest>
+
                 <suiteTest>ReadKvpIntrinsicData</suiteTest>
                 <suiteTest>WriteKvpDataToGuest</suiteTest>
                 <suiteTest>ModifyKvpDataOnGuest</suiteTest>
@@ -131,36 +131,36 @@
                 <suiteTest>KvpGetVmIpOnHost</suiteTest>
                 <suiteTest>OnGuestReadHostKvpData</suiteTest>
                 <suiteTest>ModifyNonExistentKvpDataOnGuest</suiteTest>
-                <suiteTest>StopStartKvpDaemon</suiteTest>      
-				
-				<suiteTest>PingSizeInterval</suiteTest>
-				<suiteTest>ExternalSynthNetAdapter</suiteTest>   
-                <suiteTest>SwitchNIC2</suiteTest> 
-                <suiteTest>InternalSynthNetAdapter</suiteTest>
-                <suiteTest>PrivateSynthNetAdapter</suiteTest> 		
+                <suiteTest>StopStartKvpDaemon</suiteTest>
 
-				<suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
-				<suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
-				<suiteTest>4K_HotAddDynamicVHDX_SCSIDrive</suiteTest>
-				<suiteTest>4K_HotRemoveDynamicVHDX_SCSIDrive</suiteTest>
-				<suiteTest>HotAddRandomMultiSCSIDisks_MiniLun0</suiteTest>
-				<suiteTest>HotAddRandomMultiSCSIDisks_MiniLun8</suiteTest>
-				
-				<suiteTest>VHDX_HotADD_Multi_Dynamic_SCSI_SMP</suiteTest>
+                <suiteTest>PingSizeInterval</suiteTest>
+                <suiteTest>ExternalSynthNetAdapter</suiteTest>
+                <suiteTest>SwitchNIC2</suiteTest>
+                <suiteTest>InternalSynthNetAdapter</suiteTest>
+                <suiteTest>PrivateSynthNetAdapter</suiteTest>
+
+                <suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
+                <suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
+                <suiteTest>4K_HotAddDynamicVHDX_SCSIDrive</suiteTest>
+                <suiteTest>4K_HotRemoveDynamicVHDX_SCSIDrive</suiteTest>
+                <suiteTest>HotAddRandomMultiSCSIDisks_MiniLun0</suiteTest>
+                <suiteTest>HotAddRandomMultiSCSIDisks_MiniLun8</suiteTest>
+
+                <suiteTest>VHDX_HotADD_Multi_Dynamic_SCSI_SMP</suiteTest>
                 <suiteTest>VHDX_HotRemove_Multi_Dynamic_SCSI_SMP</suiteTest>
                 <suiteTest>VHD_HotADD_Multi_Dynamic_SCSI_SMP</suiteTest>
                 <suiteTest>VHD_HotRemove_Multi_Dynamic_SCSI_SMP</suiteTest>
                 <suiteTest>HotAddPassThroughSCSIDrive_Multi</suiteTest>
-                <suiteTest>HotRemovePassThroughSCSIDrive_Multi</suiteTest> 
-				
-				<suiteTest>TimeSyncWithNTPServer</suiteTest>					
-				<suiteTest>VmbusVerifyInterrupts</suiteTest>	
-				<suiteTest>VmbusProtocolVersion</suiteTest>	
-				<suiteTest>VerifyVRSS</suiteTest>	
-				<suiteTest>VerifyTSOandLRO</suiteTest>	
-				
+                <suiteTest>HotRemovePassThroughSCSIDrive_Multi</suiteTest>
+
+                <suiteTest>TimeSyncWithNTPServer</suiteTest>
+                <suiteTest>VmbusVerifyInterrupts</suiteTest>
+                <suiteTest>VmbusProtocolVersion</suiteTest>
+                <suiteTest>VerifyVRSS</suiteTest>
+                <suiteTest>VerifyTSOandLRO</suiteTest>
+
                 <suiteTest>VHDxResizeToBigger512</suiteTest>
                 <suiteTest>VHDxResizeToBigger4096</suiteTest>
                 <suiteTest>VHDxResizeToBigger512_Dynamic_IDE</suiteTest>
@@ -177,121 +177,121 @@
                 <suiteTest>VHDxResizeGrowOver2TB_Shrink_SCSI_Online</suiteTest>
                 <suiteTest>VHDxResizeGrowOver2TB_Shrink_SCSI_Offline</suiteTest>
                 <suiteTest>VHDxResizeGrowOver2TB_Shrink_IDE</suiteTest>
-				
+
                 <suiteTest>Hyperv_keyboard_vim</suiteTest>
-                
-				<suiteTest>Test50TimesReboot</suiteTest>	
+
+                <suiteTest>Test50TimesReboot</suiteTest>
             </suiteTests>
         </suite>
 
-        <suite>    
+        <suite>
             <suiteName>Other</suiteName>
             <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
-				<suiteTest>Setmtu</suiteTest>	
-				
+                <suiteTest>Setmtu</suiteTest>
+                
                 <suiteTest>Floppymount</suiteTest>
-                <suiteTest>CDmount</suiteTest>     
+                <suiteTest>CDmount</suiteTest>
 
-                <suiteTest>TestExportImport</suiteTest>  
+                <suiteTest>TestExportImport</suiteTest>
 
-				<suiteTest>CopyLargeFile</suiteTest> 
-                <suiteTest>CopyMultipleSmallFiles</suiteTest>      
-                <suiteTest>CopyFileExceedDiskSizeIDE</suiteTest> 
-                <suiteTest>CopyFileExceedDiskSizeSCSI</suiteTest>  
-				<suiteTest>CopyWithDifferentMTU</suiteTest>					
+                <suiteTest>CopyLargeFile</suiteTest>
+                <suiteTest>CopyMultipleSmallFiles</suiteTest>
+                <suiteTest>CopyFileExceedDiskSizeIDE</suiteTest>
+                <suiteTest>CopyFileExceedDiskSizeSCSI</suiteTest>
+                <suiteTest>CopyWithDifferentMTU</suiteTest>
             </suiteTests>
-        </suite> 
-		
-		<suite>
-			<suiteName>HotAddAddRemoveDisk</suiteName>
-			<suiteTests>
+        </suite>
+
+        <suite>
+            <suiteName>HotAddAddRemoveDisk</suiteName>
+            <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
-				<suiteTest>HotAddFixedSCSIDrive</suiteTest>
-				<suiteTest>HotRemoveFixedSCSIDrive</suiteTest>
-				<suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
-				<suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
-				<suiteTest>HotAddDynamicSCSIDriveVHDX</suiteTest>
-				<suiteTest>HotRemoveDynamicSCSIDriveVHDX</suiteTest>
-				<suiteTest>4K_HotAddDynamicVHDX_SCSIDrive</suiteTest>
-				<suiteTest>4K_HotRemoveDynamicVHDX_SCSIDrive</suiteTest>
-				<suiteTest>HotAddRandomMultiSCSIDisks_MiniLun0</suiteTest>
-				<suiteTest>HotAddRandomMultiSCSIDisks_MiniLun8</suiteTest>
-			</suiteTests>
-		</suite>
-		
-		<suite>
-			<suiteName>KnownBugs</suiteName>
-			<suiteTests>
+                <suiteTest>HotAddFixedSCSIDrive</suiteTest>
+                <suiteTest>HotRemoveFixedSCSIDrive</suiteTest>
+                <suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
+                <suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
+                <suiteTest>HotAddDynamicSCSIDriveVHDX</suiteTest>
+                <suiteTest>HotRemoveDynamicSCSIDriveVHDX</suiteTest>
+                <suiteTest>4K_HotAddDynamicVHDX_SCSIDrive</suiteTest>
+                <suiteTest>4K_HotRemoveDynamicVHDX_SCSIDrive</suiteTest>
+                <suiteTest>HotAddRandomMultiSCSIDisks_MiniLun0</suiteTest>
+                <suiteTest>HotAddRandomMultiSCSIDisks_MiniLun8</suiteTest>
+            </suiteTests>
+        </suite>
+
+        <suite>
+            <suiteName>KnownBugs</suiteName>
+            <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
-				<suiteTest>DeleteNonExistentKvpDataOnGuest</suiteTest>
-				<suiteTest>DisableEnableDataExchange</suiteTest>
-				<suiteTest>CopyWithDifferentMTU</suiteTest>	
-			</suiteTests>
-		</suite>
-		
-		<suite>
-			<suiteName>NMITest</suiteName>
-			<suiteTests>
+                <suiteTest>DeleteNonExistentKvpDataOnGuest</suiteTest>
+                <suiteTest>DisableEnableDataExchange</suiteTest>
+                <suiteTest>CopyWithDifferentMTU</suiteTest>
+            </suiteTests>
+        </suite>
+
+        <suite>
+            <suiteName>NMITest</suiteName>
+            <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
-				<suiteTest>SetNMI</suiteTest>
+                <suiteTest>SetNMI</suiteTest>
                 <suiteTest>VerifyNMIforVMInSavedState</suiteTest>
                 <suiteTest>VerifyNMIforVMInStoppedState</suiteTest>
                 <suiteTest>VerifyNMIforVMInPausedState</suiteTest>
-                <suiteTest>SendNMIToVMwithUnPrivUser</suiteTest>    				
-			</suiteTests>
-		</suite>
-		
-		<suite>    
+                <suiteTest>SendNMIToVMwithUnPrivUser</suiteTest>
+            </suiteTests>
+        </suite>
+
+        <suite>
             <suiteName>DiskTest</suiteName>
             <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
                 <suiteTest>HotAddFixedSCSIDrive</suiteTest>
-				<suiteTest>HotRemoveFixedSCSIDrive</suiteTest>
-				<suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
-				<suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
-				<suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
-				<suiteTest>HotAddDynamicSCSIDriveVHDX</suiteTest>
-				<suiteTest>HotRemoveDynamicSCSIDriveVHDX</suiteTest>
-				<suiteTest>4K_HotAddDynamicVHDX_SCSIDrive</suiteTest>
-				<suiteTest>4K_HotRemoveDynamicVHDX_SCSIDrive</suiteTest>
-				<suiteTest>HotAddRandomMultiSCSIDisks_MiniLun0</suiteTest>
-				<suiteTest>HotAddRandomMultiSCSIDisks_MiniLun8</suiteTest>
-				<suiteTest>HotAddPassThroughSCSIDrive_Multi</suiteTest>
-                <suiteTest>HotRemovePassThroughSCSIDrive_Multi</suiteTest> 
-				<suiteTest>AddFixedIDEDrive</suiteTest>
-                <suiteTest>AddDynamicIDEDrive0</suiteTest> 
-                <suiteTest>AddDynamicIDEDrive1</suiteTest> 
+                <suiteTest>HotRemoveFixedSCSIDrive</suiteTest>
+                <suiteTest>HotAddFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotRemoveFixedSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotAddPassThroughSCSIDrive</suiteTest>
+                <suiteTest>HotRemovePassThroughSCSIDrive</suiteTest>
+                <suiteTest>HotAddDynamicSCSIDriveVHDX</suiteTest>
+                <suiteTest>HotRemoveDynamicSCSIDriveVHDX</suiteTest>
+                <suiteTest>4K_HotAddDynamicVHDX_SCSIDrive</suiteTest>
+                <suiteTest>4K_HotRemoveDynamicVHDX_SCSIDrive</suiteTest>
+                <suiteTest>HotAddRandomMultiSCSIDisks_MiniLun0</suiteTest>
+                <suiteTest>HotAddRandomMultiSCSIDisks_MiniLun8</suiteTest>
+                <suiteTest>HotAddPassThroughSCSIDrive_Multi</suiteTest>
+                <suiteTest>HotRemovePassThroughSCSIDrive_Multi</suiteTest>
+                <suiteTest>AddFixedIDEDrive</suiteTest>
+                <suiteTest>AddDynamicIDEDrive0</suiteTest>
+                <suiteTest>AddDynamicIDEDrive1</suiteTest>
                 <suiteTest>AddDynamicIDEDrive_Multi</suiteTest>
-                <suiteTest>AddDifferencingIDEDrive</suiteTest>  
+                <suiteTest>AddDifferencingIDEDrive</suiteTest>
                 <suiteTest>AddDynamicSCSIDriveVHDX</suiteTest>
-                <suiteTest>AddFixedSCSIDriveVHDX</suiteTest>      
-                <suiteTest>AddDynamicSCSIDrive</suiteTest> 
+                <suiteTest>AddFixedSCSIDriveVHDX</suiteTest>
+                <suiteTest>AddDynamicSCSIDrive</suiteTest>
                 <suiteTest>AddFixedSCSIDrive</suiteTest>
-                <suiteTest>AddDifferencingSCSIDrive</suiteTest>   
-                <suiteTest>AddDynamicSCSIDrive_Multi</suiteTest>      
-                <suiteTest>AddPassThroughSCSIDrive_Multi</suiteTest>                                   
-                <suiteTest>AddPassThroughIDEDrive0</suiteTest>                                
-                <suiteTest>AddPassThroughIDEDrive1</suiteTest> 
+                <suiteTest>AddDifferencingSCSIDrive</suiteTest>
+                <suiteTest>AddDynamicSCSIDrive_Multi</suiteTest>
+                <suiteTest>AddPassThroughSCSIDrive_Multi</suiteTest>
+                <suiteTest>AddPassThroughIDEDrive0</suiteTest>
+                <suiteTest>AddPassThroughIDEDrive1</suiteTest>
                 <suiteTest>AddPassThroughIDEDrive1_Multi</suiteTest>
                 <suiteTest>4K_AddDynamicIDEDriveVHDX0</suiteTest>
                 <suiteTest>4K_AddDynamicIDEDriveVHDX1</suiteTest>
                 <suiteTest>4K_AddFixedIDEDriveVHDX</suiteTest>
                 <suiteTest>AddDynamicIDEDriveVHDX0</suiteTest>
                 <suiteTest>AddDynamicIDEDriveVHDX1</suiteTest>
-                <suiteTest>AddFixedIDEDriveVHDX</suiteTest>   
-                <suiteTest>AddDifferencingIDEDriveVHDx4k</suiteTest>    
+                <suiteTest>AddFixedIDEDriveVHDX</suiteTest>
+                <suiteTest>AddDifferencingIDEDriveVHDx4k</suiteTest>
                 <suiteTest>4K_AddFixedSCSIDriveVHDX</suiteTest>
                 <suiteTest>AddDifferencingSCSIDriveVHDx4k</suiteTest>
-                <suiteTest>4K_AddMultipleVHDX_IDE0</suiteTest>        
-                <suiteTest>4K_AddDynamicVHDX_SCSIDrive_Multi</suiteTest>            
+                <suiteTest>4K_AddMultipleVHDX_IDE0</suiteTest>
+                <suiteTest>4K_AddDynamicVHDX_SCSIDrive_Multi</suiteTest>
             </suiteTests>
-        </suite>  
+        </suite>
 
-		<suite>    
+        <suite>
             <suiteName>KvpTest</suiteName>
             <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
@@ -305,27 +305,27 @@
                 <suiteTest>DeleteNonExistentKvpDataOnGuest</suiteTest>
                 <suiteTest>ModifyNonExistentKvpDataOnGuest</suiteTest>
                 <suiteTest>DisableEnableDataExchange</suiteTest>
-                <suiteTest>StopStartKvpDaemon</suiteTest>       
+                <suiteTest>StopStartKvpDaemon</suiteTest>
             </suiteTests>
-        </suite>  
-		
-		<suite>    
+        </suite>
+
+        <suite>
             <suiteName>500TimesRebootTest</suiteName>
             <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
                 <suiteTest>Test500TimesReboot</suiteTest>
             </suiteTests>
-        </suite>  
-        
-        <suite>    
+        </suite>
+
+        <suite>
             <suiteName>PressTest</suiteName>
             <suiteTests>
                 <suiteTest>GetSystemInfo</suiteTest>
                 <suiteTest>Test500TimesReboot</suiteTest>
                 <suiteTest>HotAddRandomMultiSCSIDisks_Press</suiteTest>
             </suiteTests>
-        </suite> 
-		
+        </suite>
+
         <suite>
             <suiteName>VHDxResize</suiteName>
             <suiteTests>
@@ -347,7 +347,7 @@
                 <suiteTest>VHDxResizeGrowOver2TB_Shrink_SCSI_Offline</suiteTest>
                 <suiteTest>VHDxResizeGrowOver2TB_Shrink_IDE</suiteTest>
             </suiteTests>
-        </suite>   
+        </suite>
     </testSuites>
 
     <testCases>
@@ -360,8 +360,7 @@
             <noReboot>False</noReboot>
             <TestCategory>Core</TestCategory>
         </test>
-
-		<test>
+        <test>
             <testName>CheckMemoryCapacity-512MB</testName>
             <testScript>TC-CheckMemCapacity.sh</testScript>
             <files>remote-scripts\freebsd\TC-CheckMemCapacity.sh</files>
@@ -369,14 +368,13 @@
             <timeout>600</timeout>
             <testparams>
                 <param>VMEM=512MB</param>
-                <param>TC_COVERED=CORE-09</param>   
+                <param>TC_COVERED=CORE-09</param>
             </testparams>
             <onError>Continue</onError>
             <noReboot>False</noReboot>
             <TestCategory>Core</TestCategory>
         </test>
-		
-			<test>
+        <test>
             <testName>CheckMemoryCapacity-2GB</testName>
             <testScript>TC-CheckMemCapacity.sh</testScript>
             <files>remote-scripts\freebsd\TC-CheckMemCapacity.sh</files>
@@ -384,14 +382,13 @@
             <timeout>600</timeout>
             <testparams>
                 <param>VMEM=2GB</param>
-                <param>TC_COVERED=CORE-09</param>   
+                <param>TC_COVERED=CORE-09</param>
             </testparams>
             <onError>Continue</onError>
             <noReboot>False</noReboot>
             <TestCategory>Core</TestCategory>
         </test>
-		
-		<test>
+        <test>
             <testName>CheckMemoryCapacity-5GB</testName>
             <testScript>TC-CheckMemCapacity.sh</testScript>
             <files>remote-scripts\freebsd\TC-CheckMemCapacity.sh</files>
@@ -399,30 +396,30 @@
             <timeout>600</timeout>
             <testparams>
                 <param>VMEM=5GB</param>
-                <param>TC_COVERED=CORE-09</param>   
+                <param>TC_COVERED=CORE-09</param>
             </testparams>
             <onError>Continue</onError>
             <noReboot>False</noReboot>
             <TestCategory>Core</TestCategory>
         </test>
         <test>
-			<testName>BuildKernel</testName>
-			<setupScript>setupScripts\PrepareBuildKernel.ps1</setupScript>
-			<testScript>BuildFreebsdKernel.sh</testScript>
-			<cleanupScript>setupScripts\TakeSnapshot.ps1</cleanupScript>
-			<files>remote-scripts\freebsd\BuildFreebsdKernel.sh</files>
-			<timeout>72000</timeout>
-			<onError>Abort</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>GIT_URL=https://github.com/freebsd/freebsd.git</param>
-				<param>GIT_BRANCH=master</param>
-				<param>GIT_COMMITID=None</param>
-				<param>SnapshotName=ICABase</param>
-				<param>TC_COVERED=CORE-15</param>
-			</testparams>
-			<TestCategory>Core</TestCategory>
-		</test>
+            <testName>BuildKernel</testName>
+            <setupScript>setupScripts\PrepareBuildKernel.ps1</setupScript>
+            <testScript>BuildFreebsdKernel.sh</testScript>
+            <cleanupScript>setupScripts\TakeSnapshot.ps1</cleanupScript>
+            <files>remote-scripts\freebsd\BuildFreebsdKernel.sh</files>
+            <timeout>72000</timeout>
+            <onError>Abort</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>GIT_URL=https://github.com/freebsd/freebsd.git</param>
+                <param>GIT_BRANCH=master</param>
+                <param>GIT_COMMITID=None</param>
+                <param>SnapshotName=ICABase</param>
+                <param>TC_COVERED=CORE-15</param>
+            </testparams>
+            <TestCategory>Core</TestCategory>
+        </test>
         <test>
             <testName>VerifyBISInstall</testName>
             <testScript>VerifyBISInstall.sh</testScript>
@@ -437,11 +434,11 @@
             <testScript>CDmount.sh</testScript>
             <files>remote-scripts\freebsd\CDmount.sh</files>
             <setupScript>setupScripts\InsertIsoInDvd.ps1</setupScript>
-            <cleanupScript>setupScripts\RemoveDvdDrive.ps1</cleanupScript> 
+            <cleanupScript>setupScripts\RemoveDvdDrive.ps1</cleanupScript>
             <testparams>
-                <param>IsoFilename=C:\FreeBSD_ISO\FreeBSD-10.0-RELEASE-amd64-dvd1.iso</param> 
+                <param>IsoFilename=C:\FreeBSD_ISO\FreeBSD-10.0-RELEASE-amd64-dvd1.iso</param>
                 <param>TC_COVERED=STOR-61</param>
-            </testparams> 
+            </testparams>
             <timeout>600</timeout>
             <onError>Continue</onError>
             <noReboot>False</noReboot>
@@ -456,7 +453,6 @@
             <noReboot>False</noReboot>
             <TestCategory>Core</TestCategory>
         </test>
-
         <test>
             <testName>VerifyLoadableModules</testName>
             <testScript>VerifyLoadableModules.sh</testScript>
@@ -466,7 +462,6 @@
             <noReboot>False</noReboot>
             <TestCategory>Core</TestCategory>
         </test>
-
         <test>
             <testName>CheckCPUCount-2</testName>
             <testScript>TC-CheckCPUCount.sh</testScript>
@@ -491,8 +486,8 @@
             <noReboot>False</noReboot>
             <testparams>
                 <param>TC_COVERED=CORE-07</param>
-            </testparams>             
-            <TestCategory>Core</TestCategory>   
+            </testparams>
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>CheckCPUCount-3</testName>
@@ -519,7 +514,7 @@
             <testparams>
                 <param>TC_COVERED=CORE-07</param>
             </testparams>
-            <TestCategory>Core</TestCategory>           
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>CheckCPUCount-4</testName>
@@ -562,7 +557,7 @@
             <testparams>
                 <param>TC_COVERED=CORE-08</param>
             </testparams>
-            <TestCategory>Core</TestCategory>     
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>ExternalSynthNetAdapter</testName>
@@ -579,7 +574,6 @@
             </testparams>
             <TestCategory>Network</TestCategory>
         </test>
-
         <test>
             <testName>UpDownNIC</testName>
             <testScript>upDownNIC.sh</testScript>
@@ -616,7 +610,7 @@
             <testScript>TC-AttachSynthNetAdapter.sh</testScript>
             <files>remote-scripts\freebsd\TC-AttachSynthNetAdapter.sh</files>
             <pretest>setupScripts\SwitchNIC.ps1</pretest>
-			<setupScript>setupScripts\AddNIC.ps1</setupScript>
+            <setupScript>setupScripts\AddNIC.ps1</setupScript>
             <cleanupScript>setupScripts\RemoveNic.ps1</cleanupScript>
             <timeout>600</timeout>
             <onError>Continue</onError>
@@ -646,7 +640,6 @@
             </testparams>
             <TestCategory>Network</TestCategory>
         </test>
-
         <test>
             <testName>PrivateSynthNetAdapter</testName>
             <testScript>TC-AttachSynthNetAdapter.sh</testScript>
@@ -664,7 +657,6 @@
             </testparams>
             <TestCategory>Network</TestCategory>
         </test>
-
         <test>
             <testName>PingSizeInterval</testName>
             <testScript>PingSizeInterval.sh</testScript>
@@ -681,7 +673,6 @@
             </testparams>
             <TestCategory>Network</TestCategory>
         </test>
-
         <test>
             <testName>AddDynamicIDEDrive1</testName>
             <testScript>AddNewDisk_New.sh</testScript>
@@ -796,8 +787,7 @@
                 <param>NO=1</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-    </test>
-
+        </test>
         <test>
             <testName>AddFixedSCSIDrive</testName>
             <testScript>AddNewDisk_New.sh</testScript>
@@ -814,7 +804,7 @@
                 <param>NO=1</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-    </test>
+        </test>
         <test>
             <testName>AddPassThroughSCSIDrive</testName>
             <testScript>AddNewDisk_New.sh</testScript>
@@ -850,7 +840,7 @@
                 <param>NO=2</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-        </test>    
+        </test>
         <test>
             <testName>AddDynamicSCSIDrive_Multi</testName>
             <testScript>AddNewDisk_New.sh</testScript>
@@ -887,7 +877,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>AddDifferencingSCSIDrive</testName>
             <testScript>AddNewDisk_New.sh</testScript>
@@ -921,7 +910,7 @@
                 <param>PARENT=icaDiffVhdx4k.vhdx</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-        </test>    
+        </test>
         <test>
             <testName>CopyLargeFile</testName>
             <testScript>copyLargeFile.sh</testScript>
@@ -946,7 +935,7 @@
                 <param>LARGE_FILENAME=testdata</param>
                 <param>TC_COVERED=NET-20</param>
             </testparams>
-            <TestCategory>Network</TestCategory>        
+            <TestCategory>Network</TestCategory>
         </test>
         <test>
             <testName>CopyFileExceedDiskSizeIDE</testName>
@@ -965,7 +954,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>CopyFileExceedDiskSizeSCSI</testName>
             <testScript>copyExceedDiskSize.sh</testScript>
@@ -983,7 +971,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>TimeSync</testName>
             <testScript>setupScripts\timesync.ps1</testScript>
@@ -994,7 +981,7 @@
             <testparams>
                 <param>TC_COVERED=CORE-04</param>
             </testparams>
-            <TestCategory>Core</TestCategory>      
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>TimeSync_SavedVM</testName>
@@ -1006,8 +993,8 @@
             <testparams>
                 <param>TC_COVERED=CORE-05</param>
             </testparams>
-            <TestCategory>Core</TestCategory>         
-        </test>  
+            <TestCategory>Core</TestCategory>
+        </test>
         <test>
             <testName>Heartbeat</testName>
             <testScript>setupScripts\TestVMHeartbeat.ps1</testScript>
@@ -1018,7 +1005,7 @@
             <testparams>
                 <param>TC_COVERED=CORE-03</param>
             </testparams>
-            <TestCategory>Core</TestCategory>         
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>ShutdownFromHyperV</testName>
@@ -1030,7 +1017,7 @@
             <testparams>
                 <param>TC_COVERED=CORE-06</param>
             </testparams>
-            <TestCategory>Core</TestCategory>            
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>Reboot_CTRL-ALT-DEL</testName>
@@ -1042,7 +1029,7 @@
             <testparams>
                 <param>TC_COVERED=CORE-16</param>
             </testparams>
-            <TestCategory>Core</TestCategory>             
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>AddDynamicIDEDriveVHDX_NBIS</testName>
@@ -1195,7 +1182,7 @@
                 <param>TC_COVERED=STOR-46</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-        </test>        
+        </test>
         <test>
             <testName>4K_AddFixedSCSIDriveVHDX</testName>
             <testScript>AddNewDisk_NBIS.sh</testScript>
@@ -1211,7 +1198,7 @@
                 <param>TC_COVERED=STOR-48</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-        </test>        
+        </test>
         <test>
             <!-- added by andy -->
             <testName>4K_AddMultipleVHDX_IDE0</testName>
@@ -1229,7 +1216,7 @@
                 <param>NO=1</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-        </test>            
+        </test>
         <test>
             <!-- added by andy -->
             <testName>4K_AddMultipleVHDX_IDE1</testName>
@@ -1249,7 +1236,7 @@
                 <param>NO=2</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-        </test>            
+        </test>
         <test>
             <testName>4K_AddDynamicVHDX_SCSIDrive_Multi</testName>
             <testScript>AddNewDisk_New.sh</testScript>
@@ -1268,7 +1255,7 @@
                 <param>NO=2</param>
             </testparams>
             <TestCategory>Storage</TestCategory>
-        </test>            
+        </test>
         <test>
             <testName>AddDynamicSCSIDriveVHDX</testName>
             <testScript>AddNewDisk_New.sh</testScript>
@@ -1337,7 +1324,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>PromiscSynthNetAdapter</testName>
             <testScript>PromiscSynthNetAdapter.sh</testScript>
@@ -1487,7 +1473,7 @@
             <testparams>
                 <param>TC_COVERED=STOR-58</param>
             </testparams>
-            <TestCategory>Core</TestCategory> 
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>Test50TimesReboot</testName>
@@ -1499,9 +1485,9 @@
             <testparams>
                 <param>TC_COVERED=BOOT-02</param>
             </testparams>
-            <TestCategory>Core</TestCategory>   
+            <TestCategory>Core</TestCategory>
         </test>
-		<test>
+        <test>
             <testName>Test500TimesReboot</testName>
             <testScript>setupScripts\Test500TimesReboot.ps1</testScript>
             <files>setupScripts\Test500TimesReboot.ps1</files>
@@ -1511,7 +1497,7 @@
             <testparams>
                 <param>TC_COVERED=BOOT-02</param>
             </testparams>
-            <TestCategory>Core</TestCategory>          
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>AddDifferencingIDEDriveVHDx4k</testName>
@@ -1630,8 +1616,8 @@
             <testparams>
                 <param>TC_COVERED=NMI-01</param>
             </testparams>
-            <TestCategory>Core</TestCategory>       
-        </test>        
+            <TestCategory>Core</TestCategory>
+        </test>
         <test>
             <testName>VerifyNMIforVMInSavedState</testName>
             <testScript>SetupScripts\NMI_2.3.2e-SendNMIToVMinSavedState.ps1</testScript>
@@ -1640,8 +1626,8 @@
             <testparams>
                 <param>TC_COVERED=NMI-02</param>
             </testparams>
-            <TestCategory>Core</TestCategory>          
-        </test>        
+            <TestCategory>Core</TestCategory>
+        </test>
         <test>
             <testName>VerifyNMIforVMInStoppedState</testName>
             <testScript>SetupScripts\NMI_2.3.2b-SendNMIToVMInStoppedState.ps1</testScript>
@@ -1650,7 +1636,7 @@
             <testparams>
                 <param>TC_COVERED=NMI-02</param>
             </testparams>
-            <TestCategory>Core</TestCategory>        
+            <TestCategory>Core</TestCategory>
         </test>
         <test>
             <testName>VerifyNMIforVMInPausedState</testName>
@@ -1660,8 +1646,8 @@
             <testparams>
                 <param>TC_COVERED=NMI-02</param>
             </testparams>
-            <TestCategory>Core</TestCategory>          
-        </test>            
+            <TestCategory>Core</TestCategory>
+        </test>
         <test>
             <testName>SendNMIToVMwithUnPrivUser</testName>
             <testScript>SetupScripts\NMI_2.3.3-SendNMIToVMwithUnPrivUser.ps1</testScript>
@@ -1670,9 +1656,8 @@
             <testparams>
                 <param>TC_COVERED=NMI-03</param>
             </testparams>
-            <TestCategory>Core</TestCategory>      
-        </test>         
-        
+            <TestCategory>Core</TestCategory>
+        </test>
         <test>
             <testName>ReadKvpIntrinsicData</testName>
             <testScript>SetupScripts\KVP_Basic.ps1</testScript>
@@ -1684,7 +1669,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-
         <test>
             <testName>WriteKvpDataToGuest</testName>
             <testScript>KVP_VerifyKeyValue.sh</testScript>
@@ -1701,7 +1685,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-
         <test>
             <testName>ModifyKvpDataOnGuest</testName>
             <testScript>KVP_VerifyKeyValue.sh</testScript>
@@ -1718,7 +1701,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-
         <test>
             <testName>DeleteKvpDataOnGuest</testName>
             <testScript>setupscripts\KVP_DeleteKeyValue.ps1</testScript>
@@ -1733,7 +1715,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-
         <test>
             <testName>ReadKvpNonIntrinsicData</testName>
             <testScript>setupscripts\BIS_KVPNonIntrinsicData.ps1</testScript>
@@ -1748,7 +1729,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-        
         <test>
             <testName>KvpGetVmIpOnHost</testName>
             <testScript>setupscripts\KVP_TestKvpGET.ps1</testScript>
@@ -1760,7 +1740,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-        
         <test>
             <testName>OnGuestReadHostKvpData</testName>
             <testScript>KVP_VerifyKeyValue.sh</testScript>
@@ -1776,7 +1755,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-        
         <test>
             <testName>HostOnlyWriteToPool0</testName>
             <testScript>KVP_VerifyKVInPool0.sh</testScript>
@@ -1793,7 +1771,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-        
         <test>
             <testName>DeleteNonExistentKvpDataOnGuest</testName>
             <testScript>setupScripts\BIS_DeleteKeyValueFail.ps1</testScript>
@@ -1808,7 +1785,6 @@
             </testparams>
             <TestCategory>KVP</TestCategory>
         </test>
-
         <test>
             <testName>ModifyNonExistentKvpDataOnGuest</testName>
             <testScript>setupScripts\BIS_ModifyKeyValueFail.ps1</testScript>
@@ -1822,8 +1798,7 @@
                  <param>Pool=0</param>
             </testparams>
             <TestCategory>KVP</TestCategory>
-        </test>        
-        
+        </test>
         <test>
             <testName>DisableEnableDataExchange</testName>
             <testScript>KVP_VerifyKeyValue.sh</testScript>
@@ -1839,8 +1814,7 @@
                  <param>Pool=0</param>
             </testparams>
             <TestCategory>KVP</TestCategory>
-        </test>    
-
+        </test>
         <test>
             <testName>StopStartKvpDaemon</testName>
             <testScript>setupscripts\BIS_StopStartKvpDaemon.ps1</testScript>
@@ -1852,396 +1826,373 @@
                  <param>sshKey=lisa_id_rsa.ppk</param>
             </testparams>
             <TestCategory>KVP</TestCategory>
-        </test>    
-
-		<test>
-			<testName>HotAddFixedSCSIDrive</testName>
-			<testScript>AddNewDisk_New.sh</testScript>
-			<files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<preTest>setupScripts\AddHardDisk.ps1</preTest>
-			<cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Fixed</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-18</param>
-				<param>NO=1</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotAddFixedSCSIDrive</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <preTest>setupScripts\AddHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Fixed</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-18</param>
+                <param>NO=1</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-	
-		<test>
-			<testName>HotRemoveFixedSCSIDrive</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Fixed</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-19</param>    
-				<param>NO=1</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotRemoveFixedSCSIDrive</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Fixed</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-19</param>
+                <param>NO=1</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>HotAddFixedSCSIDrive_Multi</testName>
-			<testScript>AddNewDisk_New.sh</testScript>
-			<files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<preTest>setupScripts\AddHardDisk.ps1</preTest>    
-			<cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>   
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Fixed</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,Fixed</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-20</param>
-				<param>NO=2</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotAddFixedSCSIDrive_Multi</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <preTest>setupScripts\AddHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Fixed</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,Fixed</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-20</param>
+                <param>NO=2</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-	
-		<test>
-			<testName>HotRemoveFixedSCSIDrive_Multi</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Fixed</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,Fixed</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-21</param>
-				<param>NO=2</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotRemoveFixedSCSIDrive_Multi</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Fixed</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,Fixed</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-21</param>
+                <param>NO=2</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-	
-		<test>
-			<testName>HotAddPassThroughSCSIDrive</testName>
-			<testScript>AddNewDisk_New.sh</testScript>
-			<files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<preTest>setupScripts\AddHardDisk.ps1</preTest>
-			<cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,PassThrough</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-22</param>
-				<param>NO=1</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotAddPassThroughSCSIDrive</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <preTest>setupScripts\AddHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,PassThrough</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-22</param>
+                <param>NO=1</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-	
-		<test>
-			<testName>HotRemovePassThroughSCSIDrive</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,PassThrough</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-23</param>
-				<param>NO=1</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotRemovePassThroughSCSIDrive</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,PassThrough</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-23</param>
+                <param>NO=1</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>HotAddDynamicSCSIDriveVHDX</testName>
-		    <testScript>AddNewDisk_New.sh</testScript>
-		    <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-		    <preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>  
-		    <cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
-		    <timeout>600</timeout>
-		    <onError>Continue</onError>
-		    <noReboot>False</noReboot>
-		    <testparams>
-				<param>SCSI=0,0,Dynamic,512</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-38</param>
-				<param>NO=1</param>
-		    </testparams>
+        </test>
+        <test>
+            <testName>HotAddDynamicSCSIDriveVHDX</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Dynamic,512</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-38</param>
+                <param>NO=1</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>HotRemoveDynamicSCSIDriveVHDX</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddVhdxHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveVhdxHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<testparams>
-				<param>SCSI=0,0,Dynamic,512</param>    
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-39</param>    
-				<param>NO=1</param>
-			</testparams>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
+        </test>
+        <test>
+            <testName>HotRemoveDynamicSCSIDriveVHDX</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddVhdxHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveVhdxHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <testparams>
+                <param>SCSI=0,0,Dynamic,512</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-39</param>
+                <param>NO=1</param>
+            </testparams>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>4K_HotAddDynamicVHDX_SCSIDrive</testName>
-			<testScript>AddNewDisk_New.sh</testScript>
-			<files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>
-			<cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Dynamic,4096</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-54</param>
-				<param>NO=1</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>4K_HotAddDynamicVHDX_SCSIDrive</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Dynamic,4096</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-54</param>
+                <param>NO=1</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>4K_HotRemoveDynamicVHDX_SCSIDrive</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddVhdxHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveVhdxHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<testparams>
-				<param>SCSI=0,0,Dynamic,4096</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-55</param>    
-				<param>NO=1</param>
-			</testparams>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
+        </test>
+        <test>
+            <testName>4K_HotRemoveDynamicVHDX_SCSIDrive</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddVhdxHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveVhdxHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <testparams>
+                <param>SCSI=0,0,Dynamic,4096</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-55</param>
+                <param>NO=1</param>
+            </testparams>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>4K_HotAddDynamicVHDX_SCSIDrive_Multi</testName>
-			<testScript>AddNewDisk_New.sh</testScript>
-			<files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>
-			<cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Dynamic,4096</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,Dynamic,4096</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-56</param>
-				<param>NO=2</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>4K_HotAddDynamicVHDX_SCSIDrive_Multi</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Dynamic,4096</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,Dynamic,4096</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-56</param>
+                <param>NO=2</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-	    <test>
-			<testName>VHDX_HotADD_Multi_Dynamic_SCSI_SMP</testName>
-		    <testScript>AddNewDisk_New.sh</testScript>
-		    <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<setupScript>setupScripts\ChangeCPU.ps1</setupScript>
-		    <preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>  
-		    <cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
-		    <timeout>1200</timeout>
-		    <onError>Continue</onError>
-		    <noReboot>False</noReboot>
-		    <testparams>
-				<param>SCSI=0,0,Dynamic,4096</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,Dynamic,4096</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-42</param>
-				<param>NO=2</param>
-				<param>VCPU=4</param>
-		    </testparams>
+        </test>
+        <test>
+            <testName>VHDX_HotADD_Multi_Dynamic_SCSI_SMP</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <setupScript>setupScripts\ChangeCPU.ps1</setupScript>
+            <preTest>setupScripts\AddVhdxHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveVhdxHardDisk.ps1</cleanupScript>
+            <timeout>1200</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Dynamic,4096</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,Dynamic,4096</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-42</param>
+                <param>NO=2</param>
+                <param>VCPU=4</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>VHDX_HotRemove_Multi_Dynamic_SCSI_SMP</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddVhdxHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveVhdxHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<testparams>
-				<param>SCSI=0,0,Dynamic,4096</param>    
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,Dynamic,4096</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-42</param>    
-				<param>NO=2</param>
-			</testparams>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
+        </test>
+        <test>
+            <testName>VHDX_HotRemove_Multi_Dynamic_SCSI_SMP</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddVhdxHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveVhdxHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <testparams>
+                <param>SCSI=0,0,Dynamic,4096</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,Dynamic,4096</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-42</param>
+                <param>NO=2</param>
+            </testparams>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>VHD_HotADD_Multi_Dynamic_SCSI_SMP</testName>
-			<testScript>AddNewDisk_New.sh</testScript>
-			<files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<setupScript>setupScripts\ChangeCPU.ps1</setupScript>
-			<preTest>setupScripts\AddHardDisk.ps1</preTest>    
-			<cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>   
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Dynamic</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,Dynamic</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-24</param>
-				<param>NO=2</param>
-				<param>VCPU=4</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>VHD_HotADD_Multi_Dynamic_SCSI_SMP</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <setupScript>setupScripts\ChangeCPU.ps1</setupScript>
+            <preTest>setupScripts\AddHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Dynamic</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,Dynamic</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-24</param>
+                <param>NO=2</param>
+                <param>VCPU=4</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>VHD_HotRemove_Multi_Dynamic_SCSI_SMP</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,Dynamic</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,Dynamic</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-24</param>
-				<param>NO=2</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>VHD_HotRemove_Multi_Dynamic_SCSI_SMP</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,Dynamic</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,Dynamic</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-24</param>
+                <param>NO=2</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		
-		<test>
-			<testName>HotAddPassThroughSCSIDrive_Multi</testName>
-			<testScript>AddNewDisk_New.sh</testScript>
-			<files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
-			<preTest>setupScripts\AddHardDisk.ps1</preTest>
-			<cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,PassThrough</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,PassThrough</param>
-				<param>TEST_DEVICE2=/dev/da2</param>
-				<param>TC_COVERED=STOR-25</param>
-				<param>NO=2</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotAddPassThroughSCSIDrive_Multi</testName>
+            <testScript>AddNewDisk_New.sh</testScript>
+            <files>remote-scripts\freebsd\AddNewDisk_New.sh</files>
+            <preTest>setupScripts\AddHardDisk.ps1</preTest>
+            <cleanupScript>setupScripts\RemoveHardDisk.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,PassThrough</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,PassThrough</param>
+                <param>TEST_DEVICE2=/dev/da2</param>
+                <param>TC_COVERED=STOR-25</param>
+                <param>NO=2</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-		
-		<test>
-			<testName>HotRemovePassThroughSCSIDrive_Multi</testName>
-			<testScript>HotRemoveDisk.sh</testScript>
-			<files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
-			<setupScript>setupScripts\AddHardDisk.ps1</setupScript> 
-			<preTest>setupScripts\RemoveHardDisk.ps1</preTest>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>SCSI=0,0,PassThrough</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>SCSI=0,1,PassThrough</param>
-				<param>TEST_DEVICE1=/dev/da1</param>
-				<param>TC_COVERED=STOR-25</param>
-				<param>NO=2</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>HotRemovePassThroughSCSIDrive_Multi</testName>
+            <testScript>HotRemoveDisk.sh</testScript>
+            <files>remote-scripts/freebsd/HotRemoveDisk.sh</files>
+            <setupScript>setupScripts\AddHardDisk.ps1</setupScript>
+            <preTest>setupScripts\RemoveHardDisk.ps1</preTest>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>SCSI=0,0,PassThrough</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>SCSI=0,1,PassThrough</param>
+                <param>TEST_DEVICE1=/dev/da1</param>
+                <param>TC_COVERED=STOR-25</param>
+                <param>NO=2</param>
+            </testparams>
             <TestCategory>Storage</TestCategory>
-		</test>
-        
-		<test>
-			<testName>TimeSyncWithNTPServer</testName>
-			<testScript>CORE_TimeSync_NTP.sh</testScript>
-			<files>remote-scripts\freebsd\CORE_TimeSync_NTP.sh</files>
-			<timeout>2400</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>TC_COVERED=CORE-04</param>
-			</testparams>
+        </test>
+        <test>
+            <testName>TimeSyncWithNTPServer</testName>
+            <testScript>CORE_TimeSync_NTP.sh</testScript>
+            <files>remote-scripts\freebsd\CORE_TimeSync_NTP.sh</files>
+            <timeout>2400</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>TC_COVERED=CORE-04</param>
+            </testparams>
             <TestCategory>Core</TestCategory>
-		</test>
-		
-		<test>
-			<testName>VmbusVerifyInterrupts</testName>
-		    <testScript>vmbus_verify_interrupt.sh</testScript>
-		    <files>remote-scripts\freebsd\vmbus_verify_interrupt.sh</files>
-		    <setupScript>setupScripts\ChangeCPU.ps1</setupScript>
-		    <timeout>300</timeout>
-		    <onError>Continue</onError>
-		    <noReboot>False</noReboot>
-		    <testparams>
-			    <param>VCPU=2</param>
-			    <param>TC_COVERED=VMBUS-02</param>
-		    </testparams>
+        </test>
+        <test>
+            <testName>VmbusVerifyInterrupts</testName>
+            <testScript>vmbus_verify_interrupt.sh</testScript>
+            <files>remote-scripts\freebsd\vmbus_verify_interrupt.sh</files>
+            <setupScript>setupScripts\ChangeCPU.ps1</setupScript>
+            <timeout>300</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>VCPU=2</param>
+                <param>TC_COVERED=VMBUS-02</param>
+            </testparams>
             <TestCategory>Core</TestCategory>
-		</test>
-		
-		<test>
-			<testName>CopyWithDifferentMTU</testName>
-			<testScript>CopyWithDifferentMTU.sh</testScript>
-			<files>remote-scripts\freebsd\CopyWithDifferentMTU.sh</files>
-			<timeout>600</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>TARGET_ADDR=10.156.76.58</param>
-				<param>TARGET_PATH=/root/testdata</param>
-				<param>LARGE_FILENAME=1GB.file</param>
-				<param>TC_COVERED=NET-13</param>
-		    </testparams>
+        </test>
+        <test>
+            <testName>CopyWithDifferentMTU</testName>
+            <testScript>CopyWithDifferentMTU.sh</testScript>
+            <files>remote-scripts\freebsd\CopyWithDifferentMTU.sh</files>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>TARGET_ADDR=10.156.76.58</param>
+                <param>TARGET_PATH=/root/testdata</param>
+                <param>LARGE_FILENAME=1GB.file</param>
+                <param>TC_COVERED=NET-13</param>
+            </testparams>
             <TestCategory>Core</TestCategory>
-		</test>
-		
-		<test>
-			<testName>VmbusProtocolVersion</testName>
-			<testScript>vmbus_protocol_version.sh</testScript>
-			<files>remote-scripts\freebsd\vmbus_protocol_version.sh</files>
-			<timeout>300</timeout>
-			<onError>Continue</onError>
-			<noReboot>False</noReboot>
-			<testparams>
-				<param>VMBusVer=3.0</param>
+        </test>
+        <test>
+            <testName>VmbusProtocolVersion</testName>
+            <testScript>vmbus_protocol_version.sh</testScript>
+            <files>remote-scripts\freebsd\vmbus_protocol_version.sh</files>
+            <timeout>300</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>VMBusVer=3.0</param>
                 <param>VMBusVerOnWS2012=2.4</param>
-				<param>TC_COVERED=VMBUS-01</param>
-			</testparams>
+                <param>TC_COVERED=VMBUS-01</param>
+            </testparams>
             <TestCategory>Core</TestCategory>
-		</test>
-        
+        </test>
         <test>
             <testName>UpdateKernel</testName>
             <testScript>UpdateKernel.sh</testScript>
@@ -2254,28 +2205,26 @@
             </testparams>
             <TestCategory>Core</TestCategory>
         </test>
-		
-        <test> 
-            <testName>VHDxResizeToBigger512</testName> 
-            <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript> 
-            <setupScript>SetupScripts\Add-VHDXForResize.ps1</setupScript> 
-            <cleanupScript>SetupScripts\Remove-VHDXHardDisk.ps1</cleanupScript> 
-            <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files> 
-            <timeout>1200</timeout> 
-            <testparams> 
-                <param>Type=Dynamic</param> 
-                <param>SectorSize=512</param> 
-                <param>DefaultSize=3GB</param> 
-                <param>NewSize=4GB</param> 
-                <param>fileSystems=ufs</param> 
-                <param>ControllerType=SCSI</param> 
-                <param>TC_COVERED=STOR-VHDx-01a</param> 
-            </testparams> 
+        <test>
+            <testName>VHDxResizeToBigger512</testName>
+            <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
+            <setupScript>SetupScripts\Add-VHDXForResize.ps1</setupScript>
+            <cleanupScript>SetupScripts\Remove-VHDXHardDisk.ps1</cleanupScript>
+            <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
+            <timeout>1200</timeout>
+            <testparams>
+                <param>Type=Dynamic</param>
+                <param>SectorSize=512</param>
+                <param>DefaultSize=3GB</param>
+                <param>NewSize=4GB</param>
+                <param>fileSystems=ufs</param>
+                <param>ControllerType=SCSI</param>
+                <param>TC_COVERED=STOR-VHDx-01a</param>
+            </testparams>
             <onError>Continue</onError>
             <noReboot>False</noReboot>
             <TestCategory>Storage</TestCategory>
-        </test> 
-
+        </test>
         <test>
             <testName>VHDxResizeToBigger4096</testName>
             <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
@@ -2296,7 +2245,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeToBigger512_Fixed_IDE</testName>
             <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
@@ -2317,7 +2265,6 @@
              </testparams>
              <TestCategory>Storage</TestCategory>
        </test>
-
        <test>
             <testName>VHDxResizeToBigger512_Dynamic_IDE</testName>
             <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
@@ -2338,7 +2285,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
        </test>
-
         <test>
             <testName>VHDxResizeToSmaller512</testName>
             <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
@@ -2359,7 +2305,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeToSmaller4096</testName>
             <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
@@ -2380,7 +2325,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeGrowShrink_SCSI</testName>
             <testScript>SetupScripts\STOR_VHDXResize_GrowShrink.ps1</testScript>
@@ -2402,7 +2346,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
       <test>
           <testName>VHDxResizeGrowShrink_IDE</testName>
           <testScript>SetupScripts\STOR_VHDXResize_GrowShrink.ps1</testScript>
@@ -2411,7 +2354,7 @@
           <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
           <timeout>1200</timeout>
           <onError>Continue</onError>
-		  <noReboot>False</noReboot>
+          <noReboot>False</noReboot>
           <testparams>
               <param>Type=Dynamic</param>
               <param>SectorSize=512</param>
@@ -2424,7 +2367,6 @@
           </testparams>
           <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
            <testName>VHDxResizeGrowShrink_SCSI_Offline</testName>
            <testScript>SetupScripts\STOR_VHDXResize_GrowShrink.ps1</testScript>
@@ -2433,7 +2375,7 @@
            <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
            <timeout>1200</timeout>
            <onError>Continue</onError>
-		   <noReboot>False</noReboot>
+           <noReboot>False</noReboot>
            <testparams>
                <param>Type=Dynamic</param>
                <param>SectorSize=512</param>
@@ -2447,7 +2389,6 @@
            </testparams>
            <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeGrowFilesystem512</testName>
             <testScript>SetupScripts\STOR_VHDXResize_GrowFS.ps1</testScript>
@@ -2456,7 +2397,7 @@
             <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
             <timeout>1200</timeout>
             <onError>Continue</onError>
- 		    <noReboot>False</noReboot>
+             <noReboot>False</noReboot>
             <testparams>
                 <param>Type=Dynamic</param>
                 <param>SectorSize=512</param>
@@ -2468,7 +2409,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeGrowFilesystem4096</testName>
             <testScript>SetupScripts\STOR_VHDXResize_GrowFS.ps1</testScript>
@@ -2477,7 +2417,7 @@
             <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
             <timeout>1200</timeout>
             <onError>Continue</onError>
- 		    <noReboot>False</noReboot>
+             <noReboot>False</noReboot>
             <testparams>
                 <param>Type=Dynamic</param>
                 <param>SectorSize=4096</param>
@@ -2489,7 +2429,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeOver2TB_SCSI</testName>
             <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
@@ -2498,7 +2437,7 @@
             <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
             <timeout>1200</timeout>
             <onError>Continue</onError>
- 		    <noReboot>False</noReboot>
+             <noReboot>False</noReboot>
             <testparams>
                 <param>Type=Dynamic</param>
                 <param>SectorSize=512</param>
@@ -2510,7 +2449,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeOver2TB_IDE</testName>
             <testScript>SetupScripts\STOR_VHDXResize_Basic.ps1</testScript>
@@ -2519,7 +2457,7 @@
             <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
             <timeout>1200</timeout>
             <onError>Continue</onError>
- 		    <noReboot>False</noReboot>
+             <noReboot>False</noReboot>
             <testparams>
                 <param>Type=Dynamic</param>
                 <param>SectorSize=512</param>
@@ -2531,7 +2469,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeGrowOver2TB_Shrink_SCSI_Online</testName>
             <testScript>SetupScripts\STOR_VHDXResize_GrowShrink.ps1</testScript>
@@ -2540,7 +2477,7 @@
             <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
             <timeout>1200</timeout>
             <onError>Continue</onError>
- 		    <noReboot>False</noReboot>
+             <noReboot>False</noReboot>
             <testparams>
                 <param>Type=Dynamic</param>
                 <param>SectorSize=512</param>
@@ -2553,7 +2490,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
        </test>
-
        <test>
            <testName>VHDxResizeGrowOver2TB_Shrink_SCSI_Offline</testName>
            <testScript>SetupScripts\STOR_VHDXResize_GrowShrink.ps1</testScript>
@@ -2562,7 +2498,7 @@
            <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
            <timeout>1200</timeout>
            <onError>Continue</onError>
- 		   <noReboot>False</noReboot>
+            <noReboot>False</noReboot>
            <testparams>
                <param>Type=Dynamic</param>
                <param>SectorSize=512</param>
@@ -2576,7 +2512,6 @@
            </testparams>
            <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResizeGrowOver2TB_Shrink_IDE</testName>
             <testScript>SetupScripts\STOR_VHDXResize_GrowShrink.ps1</testScript>
@@ -2585,7 +2520,7 @@
             <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
             <timeout>1200</timeout>
             <onError>Continue</onError>
- 		    <noReboot>False</noReboot>
+             <noReboot>False</noReboot>
             <testparams>
                 <param>Type=Dynamic</param>
                 <param>SectorSize=512</param>
@@ -2598,7 +2533,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-
         <test>
             <testName>VHDxResize_Live_Migration</testName>
             <testScript>SetupScripts\STOR_VHDXResize_BasicLM.ps1</testScript>
@@ -2607,7 +2541,7 @@
             <files>remote-scripts/freebsd/STOR_VHDXResize_ReadWrite.sh</files>
             <timeout>1200</timeout>
             <onError>Continue</onError>
- 		    <noReboot>False</noReboot>
+             <noReboot>False</noReboot>
             <testparams>
                 <param>Type=Dynamic</param>
                 <param>SectorSize=512</param>
@@ -2619,27 +2553,25 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-        
         <test>
             <testName>VerifyVRSS</testName>
             <setupScript>setupScripts\ChangeCPUandAddNIC.ps1</setupScript>
-	        <testScript>VerifyVRSS.sh</testScript>
+            <testScript>VerifyVRSS.sh</testScript>
             <files>remote-scripts/freebsd/VerifyVRSS.sh</files>
-	        <cleanupScript>setupScripts\RemoveNic.ps1</cleanupScript>
+            <cleanupScript>setupScripts\RemoveNic.ps1</cleanupScript>
             <timeout>600</timeout>
             <onError>Continue</onError>
             <noReboot>False</noReboot>
             <testparams>
-		        <param>VCPU=2</param>
+                <param>VCPU=2</param>
                 <param>NVSVERSION=327680</param>  <!-- 0x50000 -->
-		        <param>NIC=NetworkAdapter,Internal,Internal</param>
+                <param>NIC=NetworkAdapter,Internal,Internal</param>
                 <param>TARGET_ADDR=192.168.1.100</param>
                 <param>LOCAL_ADDR=192.168.1.200</param>
-		        <param>TC_COVERED=VRSS-01</param>
+                <param>TC_COVERED=VRSS-01</param>
             </testparams>
             <TestCategory>Core</TestCategory>
         </test>
-	
         <test>
             <testName>VerifyTSOandLRO</testName>
             <setupScript>setupScripts\ChangeCPUandAddNIC.ps1</setupScript>
@@ -2658,7 +2590,6 @@
             </testparams>
             <TestCategory>Network</TestCategory>
         </test>
-        
         <test>
             <testName>HotAddRandomMultiSCSIDisks_MiniLun0</testName>
             <testScript>AddRandomNewSCSIDisk.sh</testScript>
@@ -2675,7 +2606,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-        
         <test>
             <testName>HotAddRandomMultiSCSIDisks_MiniLun8</testName>
             <testScript>AddRandomNewSCSIDisk.sh</testScript>
@@ -2692,7 +2622,6 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-        
         <test>
             <testName>HotAddRandomMultiSCSIDisks_Press</testName>
             <testScript>AddRandomNewSCSIDisk.sh</testScript>
@@ -2709,21 +2638,34 @@
             </testparams>
             <TestCategory>Storage</TestCategory>
         </test>
-		
-		<test>
+        <test>
             <testName>Hyperv_keyboard_vim</testName>
-			<testScript>setupscripts\HVKBD_vim_input.ps1</testScript> 
+            <testScript>setupscripts\HVKBD_vim_input.ps1</testScript>
             <testparams>
                 <param>TC_COVERED=PERF-TTCP-01</param>
             </testparams>
-			<timeout>600</timeout>
+            <timeout>600</timeout>
             <OnError>Continue</OnError>
             <TestCategory>Core</TestCategory>
-		</test>
-        
+        </test>
+        <test>
+            <testName>SRIOV-HOTPLUG-VF-DEVICE</testName>
+            <testScript>SRIOV-HOTPLUG-VF-DEVICE.sh</testScript>
+            <setupScript>setupScripts\AddNIC.ps1</setupScript>
+            <files>remote-scripts\freebsd\SRIOV-HOTPLUG-VF-DEVICE.sh</files>
+            <cleanupScript>setupScripts\RemoveNic.ps1</cleanupScript>
+            <timeout>600</timeout>
+            <onError>Continue</onError>
+            <noReboot>False</noReboot>
+            <testparams>
+                <param>TC_COVERED=SRIOV-01</param>
+                <param>NIC=SRIOV,Private,SRIOV_MLNX</param>
+            </testparams>
+            <TestCategory>Network</TestCategory>
+        </test>
     </testCases>
 
-    <VMs>        
+    <VMs>
         <vm>
             <hvServer>localhost</hvServer>
             <vmName>FreeBSD_VMname</vmName>

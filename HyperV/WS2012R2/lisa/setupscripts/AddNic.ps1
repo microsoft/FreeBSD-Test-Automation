@@ -108,13 +108,13 @@ $params = $testParams.Split(';')
 foreach ($p in $params)
 {
     $temp = $p.Trim().Split('=')
-    
+
     if ($temp.Length -ne 2)
     {
         # Ignore this parameter and move on to the next
         continue
     }
-    
+
     #
     # Is this a NIC=* parameter
     #
@@ -127,26 +127,32 @@ foreach ($p in $params)
             "Error: Invalid arguments for NIC test parameter: $p"
             return $false
         }
-        
+
         $nicType = $nicArgs[0].Trim()
         $networkType = $nicArgs[1].Trim()
         $networkName = $nicArgs[2].Trim()
         #$macAddress = $nicArgs[3].Trim()
         $legacy = $false
-        
+        $enableSRIOV = $false
+
         #
         # Validate the network adapter type
         #
-        if (@("NetworkAdapter", "LegacyNetworkAdapter") -notcontains $nicType)
+        if (@("NetworkAdapter", "LegacyNetworkAdapter","SRIOV") -notcontains $nicType)
         {
             "Error: Invalid NIC type: $nicType"
             "       Must be either 'NetworkAdapter' or 'LegacyNetworkAdapter'"
             return $false
         }
-        
+
         if ($nicType -eq "LegacyNetworkAdapter")
         {
             $legacy = $true
+        }
+
+        if ($nicType -eq "SRIOV")
+        {
+            $enableSRIOV = $true
         }
 
         #
@@ -154,7 +160,7 @@ foreach ($p in $params)
         #
         if (@("External", "Internal", "Private") -notcontains $networkType)
         {
-            "Error: Invalid netowrk type: $networkType"
+            "Error: Invalid network type: $networkType"
             "       Network type must be either: External, Internal, Private"
             return $false
         }
@@ -181,7 +187,7 @@ foreach ($p in $params)
         #    "Error: Invalid mac address: $p"
         #    return $false
         #}
-        
+
         #
         # Make sure each character is a hex digit
         #
@@ -194,7 +200,7 @@ foreach ($p in $params)
         #        return $false
         #    }
         #}
-        
+
         #
         # Add the NIC to the VM
         #
@@ -206,9 +212,19 @@ foreach ($p in $params)
             Write-Output "Adding NIC failed"
             reurn $false
         }
-        else
-        {
-            $retVal = $true
+
+        if ($enableSRIOV) {
+            Get-VMNetworkAdapter -VMName $vmName | Where-Object {$_.SwitchName -eq $networkName} | `
+            Set-VMNetworkAdapter -IovWeight 50   -Passthru | fl "iov", "status", "virtualfunction"
+            if($? -ne "True")
+            {
+                Write-Output "Enable SR-IOV in Hardware Acceleration Setting failed"
+                reurn $false
+            }
+            else
+            {
+                $retVal = $true
+            }
         }
     }
 }
